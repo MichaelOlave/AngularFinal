@@ -1,3 +1,40 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    loadComponent: async () => {
+      const m = await import('./home/home');
+      return m.Home;
+    },
+  },
+  {
+    path: 'michael/dashboard',
+    loadComponent: async () => {
+      const m = await import('./michael/dashboard/dashboard');
+      return m.Dashboard;
+    },
+  },
+  {
+    path: 'yeskey/dashboard',
+    loadComponent: async () => {
+      const m = await import('./yeskey/dashboard/dashboard');
+      return m.Dashboard;
+    },
+  },
+  {
+    path: 'sean/dashboard',
+    loadComponent: async () => {
+      const m = await import('./sean/dashboard/dashboard');
+      return m.Dashboard;
+    },
+  },
+  {
+    path: 'oskar/dashboard',
+    loadComponent: async () => {
+      const m = await import('./oskar/dashboard/dashboard');
+      return m.Dashboard;
+    },
+  },
+];
