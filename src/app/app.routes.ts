@@ -17,6 +17,13 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'michael/bingo',
+    loadComponent: async () => {
+      const m = await import('./michael/bingo/bingo');
+      return m.Bingo;
+    },
+  },
+  {
     path: 'yeskey/dashboard',
     loadComponent: async () => {
       const m = await import('./yeskey/dashboard/dashboard');
