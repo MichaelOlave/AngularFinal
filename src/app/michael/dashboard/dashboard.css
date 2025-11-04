@@ -1,0 +1,15 @@
+mat-card {
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+mat-card-title {
+    font-size: x-large;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
