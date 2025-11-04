@@ -6,6 +6,8 @@ header {
   color: white;
   align-items: center;
   justify-content: space-between;
+  border-radius: 30px;
+  margin: 5px;
 
   nav {
     width: 100%;
@@ -18,19 +20,17 @@ header {
       &:hover {
         color: #777;
       }
+      font-size: xx-large;
     }
 
-    ul {
-      list-style: none;
-      display: flex;
-
-      li {
-        cursor: pointer;
-        &:hover {
-          color: #777;
-        }
-        margin: 5px;
+    #nav-dropdowns {
+      cursor: pointer;
+      &:hover {
+        color:#777;
       }
+      margin: 5px;
+      font-size: xx-large;
+      text-align: center;
     }
   }
 }

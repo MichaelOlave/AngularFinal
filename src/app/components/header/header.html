@@ -1,12 +1,16 @@
 <header>
   <nav>
     <span routerLink="/">{{ title() }}</span>
-    <ul>
-      <li routerLink="">Home</li>
-      <li routerLink="/michael/dashboard">Michael</li>
-      <li routerLink="/yeskey/dashboard">Yeskey</li>
-      <li routerLink="/sean/dashboard">Sean</li>
-      <li routerLink="/oskar/dashboard">Oskar</li>
-    </ul>
+    <span>{{ pageTitle() }}</span>
+    <mat-icon aria-hidden="false" aria-label="Example menu icon" fontIcon="menu" matButton [matMenuTriggerFor]="menu" id="nav-dropdowns"/>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="">Home</button>
+      <button mat-menu-item routerLink="/michael/dashboard">Michael</button>
+      <button mat-menu-item routerLink="/yeskey/dashboard">Yeskey</button>
+      <button mat-menu-item routerLink="/sean/dashboard">Sean</button>
+      <button mat-menu-item routerLink="/oskar/dashboard">Oskar</button>
+    </mat-menu>
+
   </nav>
 </header>
