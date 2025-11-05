@@ -1,0 +1,12 @@
+/* section {
+    border: solid 5px;
+} */
+
+#playSpace {
+    display: flex;
+    justify-content: space-between;
+}
+
+#gameMenu {
+    width: fit-content;
+}
