@@ -18,10 +18,7 @@ export class Board {
     { column: 'G', range: [46, 60], freeSpace: false },
     { column: 'O', range: [61, 75], freeSpace: false },
   ];
-  // TODO Allow for adding columns
-  addColumn() {}
-  // TODO Allow for removing columns
-  removeColumn() {}
+
   // Generates a list of unique numbers in a specified range.
   generateValues(range: [number, number] = [1, 15]): number[] {
     const tileNumbers: number[] = [];
@@ -36,32 +33,41 @@ export class Board {
     }
     return tileNumbers;
   }
+
   tile(value: number, row: number, col: number): HTMLElement {
     const gridTile = document.createElement('div');
+    // Tile Styles
     gridTile.style.width = `${this.tileSize()}px`;
     gridTile.style.height = `${this.tileSize()}px`;
     gridTile.style.margin = '5px';
     gridTile.style.border = 'solid';
     gridTile.style.borderRadius = '10px';
     gridTile.style.backgroundColor = 'gray';
-    gridTile.onmouseenter = () => {
-      if (gridTile.style.backgroundColor !== 'red') {
-        gridTile.style.backgroundColor = 'lightgray';
-      }
-    };
-    gridTile.onmouseleave = () => {
-      if (gridTile.style.backgroundColor !== 'red') {
-        gridTile.style.backgroundColor = 'gray';
-      }
-    };
     gridTile.style.cursor = 'pointer';
     gridTile.style.fontSize = `${this.fontSize()}px`;
     gridTile.style.alignContent = 'center';
     gridTile.style.textAlign = 'center';
     gridTile.textContent = String(value);
+
+    // Setting Free space Text
     if (value === 0) {
       gridTile.textContent = 'FREE';
     }
+
+    // Change color when Hovering over
+    gridTile.onmouseenter = () => {
+      if (gridTile.style.backgroundColor !== 'red') {
+        gridTile.style.backgroundColor = 'lightgray';
+      }
+    };
+
+    gridTile.onmouseleave = () => {
+      if (gridTile.style.backgroundColor !== 'red') {
+        gridTile.style.backgroundColor = 'gray';
+      }
+    };
+
+    // Change color when Clicked
     gridTile.onclick = () => {
       gridTile.style.backgroundColor = gridTile.style.backgroundColor === 'red' ? 'gray' : 'red';
       this.boardState[row][col] = !this.boardState[row][col];
@@ -69,11 +75,13 @@ export class Board {
         alert('You Have Wone!!');
       }
     };
+
     return gridTile;
   }
 
   headerTile(value: string): HTMLElement {
     const headerTile = document.createElement('div');
+    // Header Tile Styling
     headerTile.style.width = `${this.tileSize()}px`;
     headerTile.style.height = `${this.tileSize()}px`;
     headerTile.style.border = 'solid 2px';
@@ -100,8 +108,10 @@ export class Board {
     col.style.display = 'flex';
     col.style.flexDirection = 'column';
 
+    // Add header tile
     col.appendChild(this.headerTile(boardConfig.column));
 
+    // Create Array of numbers
     const values = this.generateValues(boardConfig.range);
 
     const size = this.boardSize();
@@ -110,11 +120,13 @@ export class Board {
       values[Math.ceil(size / 2 - 1)] = 0;
     }
 
+    // Create Tiles using numbers from the Array
     for (let i = 0; i < size; i++) {
       col.appendChild(this.tile(values[i], i, colIndex));
     }
     return col;
   }
+
   loadBoard(parentElem: string): void {
     const playSpace = document.getElementById(parentElem);
     if (!playSpace) return;
@@ -123,6 +135,7 @@ export class Board {
 
     const gameBoard = document.createElement('div');
 
+    // Game Board Styling
     gameBoard.style.border = 'solid';
     gameBoard.style.borderRadius = '30px';
     gameBoard.style.margin = '5px';
@@ -130,17 +143,19 @@ export class Board {
     gameBoard.style.display = 'flex';
     gameBoard.style.justifyContent = 'center';
 
+    // Auto fills the state Array with false
     this.boardState = Array.from({ length: this.boardSize() }, () =>
       Array.from({ length: this.boardSize() }, () => false)
     );
 
-    console.log(this.boardState);
-
+    // Creates the board
     this.boardConfig.forEach((col, i) => {
       gameBoard.appendChild(this.tileColumn(i, col));
     });
+
     playSpace.appendChild(gameBoard);
   }
+
   checkWin(): boolean {
     const rows = this.boardSize();
     const cols = this.boardConfig.length;
