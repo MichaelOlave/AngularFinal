@@ -12,6 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './header.css',
 })
 export class Header {
-  title = signal('Project Gallary');
+  title = signal('Project Gallery');
   pageTitle = signal('');
 }
