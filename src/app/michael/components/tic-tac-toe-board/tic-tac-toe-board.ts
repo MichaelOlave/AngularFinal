@@ -206,6 +206,9 @@ export class TicTacToeBoard implements AfterViewInit {
     });
     resetBtn.textContent = 'Reset Board';
     resetBtn.id = 'reset';
+    resetBtn.className =
+      'px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md shadow transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300';
+    resetBtn.setAttribute('type', 'button');
 
     const scoreBoard = document.createElement('div');
     scoreBoard.className = 'score-board';
