@@ -24,6 +24,13 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'michael/tic-tac-toe',
+    loadComponent: async () => {
+      const m = await import('./michael/tic-tac-toe/tic-tac-toe');
+      return m.TicTacToe;
+    },
+  },
+  {
     path: 'yeskey/dashboard',
     loadComponent: async () => {
       const m = await import('./yeskey/dashboard/dashboard');
