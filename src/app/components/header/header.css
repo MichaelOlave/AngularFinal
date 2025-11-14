@@ -8,3 +8,15 @@
   font-size: xx-large;
   text-align: center;
 }
+
+header {
+  position: relative;
+  z-index: 100;
+  background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  header {
+    background-color: #111827;
+  }
+}
