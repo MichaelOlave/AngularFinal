@@ -1,4 +1,3 @@
-/* load the minecraft font */
 @font-face {
   font-family: 'Minecraft';
   src: url('/sean/media/minecraft.woff2') format('woff2'), url('/sean/media/minecraft.woff') format('woff'), url('/sean/media/minecraft.ttf') format('truetype'), url('/sean/media/minecraft.otf') format('opentype');
@@ -7,7 +6,6 @@
   font-display: swap;
 }
 
-/* main container for the whole game */
 .mineclick-container {
   position: relative;
   width: 100%;
@@ -17,7 +15,6 @@
   margin-top: 64px;
 }
 
-/* background image that fills the screen */
 .background {
   position: fixed;
   top: 0;
@@ -28,21 +25,20 @@
   z-index: -1;
 }
 
-/* header with logo and money display */
 .game-header {
   position: relative;
   z-index: 10;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   padding: 5px 20px;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   box-sizing: border-box;
+  gap: 20px;
 }
 
-/* game logo on the left */
 .game-logo {
   grid-column: 1;
   justify-self: start;
@@ -51,7 +47,6 @@
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-/* money display card in the center */
 .stats-panel {
   grid-column: 2;
   justify-self: center;
@@ -65,7 +60,14 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
-/* each stat line (money or money per second) */
+.upgrades-logo {
+  grid-column: 3;
+  justify-self: start;
+  height: 60px;
+  width: auto;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
 .stat-item {
   display: flex;
   align-items: center;
@@ -75,13 +77,11 @@
   font-weight: bold;
 }
 
-/* make the per second stat a bit faded */
 .stat-item-sec,
 .stat-item-sec .stat-icon {
   opacity: 0.7;
 }
 
-/* small white square icon next to numbers */
 .stat-icon {
   width: 10px;
   height: 10px;
@@ -91,7 +91,6 @@
   margin-bottom: 0.5px;
 }
 
-/* main game area with 3 columns */
 .game-main {
   position: relative;
   z-index: 10;
@@ -104,14 +103,12 @@
   box-sizing: border-box;
 }
 
-/* column for blocks (left and middle) */
 .resource-column {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* card for each block type */
 .resource-panel {
   background: rgba(51, 54, 61, 0.64);
   backdrop-filter: blur(20px);
@@ -126,14 +123,12 @@
   position: relative;
 }
 
-/* grid layout for block card */
 .resource-panel > .resource-icon-wrapper { grid-column: 1; grid-row: 1; }
 .resource-panel > .resource-info { grid-column: 2; grid-row: 1; }
 .resource-panel > .resource-tool-wrapper { grid-column: 3; grid-row: 1; }
 .resource-panel > .buy-button { grid-column: 1 / -1; grid-row: 2; }
 .resource-panel.locked { opacity: 0.5; pointer-events: none; }
 
-/* wrapper for block icon and manager tool */
 .resource-icon-wrapper,
 .resource-tool-wrapper {
   flex: 0 0 auto;
@@ -144,7 +139,6 @@
   opacity: 1;
 }
 
-/* the block image you click */
 .resource-icon {
   width: 60px;
   height: 60px;
@@ -161,7 +155,6 @@
 .resource-icon.clickable:active { transform: scale(0.98); }
 .resource-icon img { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; }
 
-/* block name and production rate info */
 .resource-info {
   flex: 1 1 auto;
   display: flex;
@@ -195,7 +188,6 @@
   opacity: 0.7;
 }
 
-/* manager tool button */
 .resource-tool {
   position: relative;
   width: 60px;
@@ -213,7 +205,6 @@
   z-index: 10;
 }
 
-/* rising block animation when manager produces money */
 .block-rise {
   position: absolute;
   top: 50%;
@@ -228,13 +219,11 @@
   z-index: 1;
 }
 
-/* animation that makes blocks rise and fade out */
 @keyframes riseFade {
   0% { transform: translateY(0) scale(1); opacity: 1; }
   100% { transform: translateY(-120px) scale(0.9); opacity: 0; }
 }
 
-/* manager tool states */
 .resource-tool.locked { opacity: 0.3; cursor: not-allowed; filter: grayscale(100%); }
 .resource-tool.unaffordable { opacity: 0.3; filter: grayscale(80%) brightness(0.5); cursor: not-allowed; }
 .resource-tool.affordable { opacity: 1; filter: brightness(1.1); border: 2px solid #55AC37; box-shadow: 0 0 4px rgba(85, 172, 55, 0.2); }
@@ -245,7 +234,6 @@
 .resource-tool:active:not(.locked):not(.unaffordable) { transform: scale(0.97); }
 .resource-tool img { width: 85%; height: 85%; object-fit: contain; position: relative; z-index: 2; }
 
-/* green buy buttons */
 .buy-button,
 .upgrade-button {
   width: 100%;
@@ -284,7 +272,6 @@
   background: #408D26;
 }
 
-/* disabled gray buttons */
 .buy-button.disabled,
 .upgrade-button.disabled {
   background: #6b7280;
@@ -300,14 +287,20 @@
   transform: none;
 }
 
-/* upgrades column on the right */
 .upgrade-column {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* upgrade card */
+.upgrades-logo {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
 .upgrade-panel {
   background: rgba(51, 54, 61, 0.64);
   backdrop-filter: blur(20px);
@@ -344,7 +337,6 @@
   text-align: left;
 }
 
-/* responsive design for smaller screens */
 @media (max-width: 1200px) {
   .game-main { grid-template-columns: 1fr 1fr; }
   .upgrade-column { grid-column: 1 / -1; }

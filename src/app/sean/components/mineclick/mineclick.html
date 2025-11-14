@@ -1,37 +1,29 @@
-<!-- main game container -->
 <div class="mineclick-container">
-  <!-- background image that fills the screen -->
   <div class="background"></div>
   
-  <!-- header with logo and money display -->
   <header class="game-header">
     <img [src]="logo" alt="Mineclick" class="game-logo" />
     <div class="stats-panel">
-      <!-- your total money -->
       <div class="stat-item">
         <div class="stat-icon"></div>
         <span class="stat-value">{{ dirtBlocks | number : '1.0-0' }}</span>
       </div>
-      <!-- money per second -->
       <div class="stat-item stat-item-sec">
         <div class="stat-icon"></div>
         <span class="stat-value">{{ blocksPerSecond | number : '1.0-0' }}/sec</span>
       </div>
     </div>
+    <img src="/sean/media/upgrades.png" alt="Upgrades" class="upgrades-logo" />
   </header>
   
-  <!-- main game area with blocks and upgrades -->
   <main class="game-main">
-    <!-- left column: dirt, stone, iron blocks -->
     <div class="resource-column">
       <div *ngFor="let block of [blocksData[0], blocksData[2], blocksData[4]]" class="resource-panel" [class.locked]="!block.unlocked">
-        <!-- the block image you can click -->
         <div class="resource-icon-wrapper">
           <div class="resource-icon" (click)="clickBlock(block)" [class.clickable]="block.unlocked && block.quantity > 0">
             <img [src]="block.icon" [alt]="block.name" />
           </div>
         </div>
-        <!-- block name and production rate -->
         <div class="resource-info">
           <div class="resource-name">{{ block.quantity }}x {{ block.name }}</div>
           <div class="production-rate">
@@ -39,32 +31,25 @@
             <span>{{ getProductionRate(block) | number : '1.0-0' }}/sec</span>
           </div>
         </div>
-        <!-- manager tool area with rising block animations -->
         <div class="resource-tool-wrapper">
-          <!-- rising block animations when manager produces money -->
           <div *ngFor="let animId of block.animationIds" class="block-rise" [style.background-image]="'url(' + block.icon + ')'"></div>
-          <!-- manager tool button (buy or toggle) -->
           <div class="resource-tool" [class.manager-purchased]="block.managerPurchased" [class.manager-enabled]="block.managerEnabled" [class.locked]="!block.unlocked" [class.affordable]="!block.managerPurchased && block.unlocked && canAfford(block.managerCost)" [class.unaffordable]="!block.managerPurchased && block.unlocked && !canAfford(block.managerCost)" (click)="block.unlocked && (block.managerPurchased ? toggleManager(block) : buyManager(block))">
             <img [src]="block.toolIcon" [alt]="block.name + ' manager'" />
           </div>
         </div>
-        <!-- buy more blocks button -->
         <button class="buy-button" [class.disabled]="!block.unlocked || getMaxAffordable(block) === 0" [disabled]="!block.unlocked || getMaxAffordable(block) === 0" (click)="buyBlocks(block)">
           {{ getBuyButtonText(block) }}
         </button>
       </div>
     </div>
     
-    <!-- right column: wood, gold, diamond blocks -->
     <div class="resource-column">
       <div *ngFor="let block of [blocksData[1], blocksData[3], blocksData[5]]" class="resource-panel" [class.locked]="!block.unlocked">
-        <!-- the block image you can click -->
         <div class="resource-icon-wrapper">
           <div class="resource-icon" (click)="clickBlock(block)" [class.clickable]="block.unlocked && block.quantity > 0">
             <img [src]="block.icon" [alt]="block.name" />
           </div>
         </div>
-        <!-- block name and production rate -->
         <div class="resource-info">
           <div class="resource-name">{{ block.quantity }}x {{ block.name }}</div>
           <div class="production-rate">
@@ -72,23 +57,18 @@
             <span>{{ getProductionRate(block) | number : '1.0-0' }}/sec</span>
           </div>
         </div>
-        <!-- manager tool area with rising block animations -->
         <div class="resource-tool-wrapper">
-          <!-- rising block animations when manager produces money -->
           <div *ngFor="let animId of block.animationIds" class="block-rise" [style.background-image]="'url(' + block.icon + ')'"></div>
-          <!-- manager tool button (buy or toggle) -->
           <div class="resource-tool" [class.manager-purchased]="block.managerPurchased" [class.manager-enabled]="block.managerEnabled" [class.locked]="!block.unlocked" [class.affordable]="!block.managerPurchased && block.unlocked && canAfford(block.managerCost)" [class.unaffordable]="!block.managerPurchased && block.unlocked && !canAfford(block.managerCost)" (click)="block.unlocked && (block.managerPurchased ? toggleManager(block) : buyManager(block))">
             <img [src]="block.toolIcon" [alt]="block.name + ' manager'" />
           </div>
         </div>
-        <!-- buy more blocks button -->
         <button class="buy-button" [class.disabled]="!block.unlocked || getMaxAffordable(block) === 0" [disabled]="!block.unlocked || getMaxAffordable(block) === 0" (click)="buyBlocks(block)">
           {{ getBuyButtonText(block) }}
         </button>
       </div>
     </div>
     
-    <!-- upgrades column on the right -->
     <div class="upgrade-column">
       <div *ngFor="let upgrade of availableUpgrades" class="upgrade-panel">
         <div class="upgrade-content">
