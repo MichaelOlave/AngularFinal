@@ -1,19 +1,7 @@
 
 <div>
   <h1>Oskar's Dashboard</h1>
-  <h3>Firefox does not work for some reason. I have no idea why, but it refuses to work for me</h3>
 
-  <p>Connect Code: {{ peerId.replace("bloop99-", "") }}</p>
-  <p>Status: {{status}}</p>
 
-  <!-- <div [hidden]="!peer">
-    <p>Peer connection initialized.</p>
-  </div> -->
-
-  <div [hidden]="status != status">
-    <input type="text" placeholder="Enter Peer ID to connect" #peerIdInput />
-    <button (click)="connectToPeer(peerIdInput.value)">Connect to Peer</button>
-  </div>
-
-  <button (click)="sendHi()">Send 'Hi!'</button>
+  
 </div>
