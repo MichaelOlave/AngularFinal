@@ -1,1 +1,43 @@
-<p>dashboard works!</p>
+<!-- interface Characters {
+  index: number;
+  char: string;
+  state: 'correct' | 'incorrect' | 'untyped';
+}
+
+interface Word {
+  letters: Characters[];
+} -->
+
+<div>
+  <h1>Speed Type</h1>
+  <h3>Words Typed: {{wordsTyped}}, Errors: {{errorsMade}}</h3>
+  <h3>Time: {{ timer$ | async }}</h3>
+
+  <div id="game-outer">
+    <input #gameInput (keydown)="handleKeyPress($event)" (focus)="onFocus()" (blur)="onBlur()" id="game-input" />
+
+    <!-- Overlay shown when input is not focused to prompt the user -->
+    <div class="input-overlay" *ngIf="!inputFocused" (click)="gameInput.focus()">
+      Click here or press any key to start typing
+    </div>
+
+    <div id="game-inner">
+
+      <span
+        *ngFor="let word of selectedWords; let wordIndex = index"
+        class="word"
+      >
+        <span
+          *ngFor="let charObj of word.letters; let charIndex = index"
+          [class.correct]="charObj.state === 'correct'"
+          [class.incorrect]="charObj.state === 'incorrect'"
+          [class.untyped]="charObj.state === 'untyped'"
+          [class.current]="charObj.index === currentIndex"
+          class="char"
+          >{{ charObj.char }}</span
+        >
+        <span> </span>
+      </span>
+    </div>
+  </div>
+</div>
