@@ -9,9 +9,9 @@ interface Word {
 } -->
 
 <div>
-  <h1>Speed Type</h1>
-  <h3>Words Typed: {{wordsTyped}}, Errors: {{errorsMade}}</h3>
-  <h3>Time: {{ timer$ | async }}</h3>
+  <h1 class="text-3xl">Speed Type</h1>
+  <h3 class="text-xl">Words Typed: {{wordsTyped}}, Errors: {{errorsMade}}</h3>
+  <h3 class="text-xl">Time: {{ timer$ | async }}</h3>
 
   <div id="game-outer">
     <input #gameInput (keydown)="handleKeyPress($event)" (focus)="onFocus()" (blur)="onBlur()" id="game-input" />

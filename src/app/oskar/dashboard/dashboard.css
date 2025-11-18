@@ -10,6 +10,7 @@
   /* Keep the input overlaid for keyboard capture but make it fully invisible */;
   position: absolute;
   width: 100%;
+  opacity: 50%;
   height: 100%;
   top: 0;
   left: 0;
