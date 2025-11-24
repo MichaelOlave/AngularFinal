@@ -31,6 +31,13 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'michael/starwars-info',
+    loadComponent: async () => {
+      const m = await import('./michael/starwars-info/starwars-info');
+      return m.StarwarsInfo;
+    },
+  },
+  {
     path: 'yeskey/dashboard',
     loadComponent: async () => {
       const m = await import('./yeskey/dashboard/dashboard');
