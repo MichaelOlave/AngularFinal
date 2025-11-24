@@ -1,0 +1,51 @@
+.case-studies-section {
+  @apply py-24 px-6 bg-[#0f172a];
+}
+
+.case-studies-container {
+  @apply max-w-7xl mx-auto;
+}
+
+.case-studies-header {
+  @apply text-center mb-16;
+}
+
+.case-studies-title {
+  @apply text-3xl font-bold text-white;
+}
+
+.case-studies-subtitle {
+  @apply text-slate-400 mt-4;
+}
+
+.case-studies-grid {
+  @apply grid md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.case-study-card {
+  @apply group bg-slate-800/20 border border-slate-700/50 hover:border-teal-500/50 rounded-2xl p-6 transition-all hover:bg-slate-800/40;
+}
+
+.case-study-logo {
+  @apply h-12 w-12 rounded-lg mb-4 flex items-center justify-center text-white font-bold text-xl;
+}
+
+.case-study-name {
+  @apply text-white font-bold text-lg mb-1;
+}
+
+.case-study-type {
+  @apply text-xs text-teal-500 font-medium px-2 py-0.5 rounded bg-teal-500/10 mb-4 inline-block;
+}
+
+.case-study-description {
+  @apply text-sm text-slate-400 mb-4;
+}
+
+.case-study-impact {
+  @apply pt-4 border-t border-white/5;
+}
+
+.case-study-impact-text {
+  @apply text-xs text-slate-500 font-mono;
+}
