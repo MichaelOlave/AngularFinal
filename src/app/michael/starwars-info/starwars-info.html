@@ -1,0 +1,6 @@
+<p>Total films: {{ films.length }}</p>
+
+@for (film of films; track film.episode_id) {
+<app-film-card [film]="film"></app-film-card>
+<p>{{ film.episode_id }}</p>
+}
