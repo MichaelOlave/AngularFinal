@@ -1,11 +1,11 @@
 <!-- interface Characters {
-  index: number;
-  char: string;
-  state: 'correct' | 'incorrect' | 'untyped';
+index: number;
+char: string;
+state: 'correct' | 'incorrect' | 'untyped';
 }
 
 interface Word {
-  letters: Characters[];
+letters: Characters[];
 } -->
 
 <div>
@@ -17,27 +17,31 @@ interface Word {
     <input #gameInput (keydown)="handleKeyPress($event)" (focus)="onFocus()" (blur)="onBlur()" id="game-input" />
 
     <!-- Overlay shown when input is not focused to prompt the user -->
-    <div class="input-overlay" *ngIf="!inputFocused" (click)="gameInput.focus()">
-      Click here or press any key to start typing
-    </div>
+    @if (!inputFocused) {
+      <div class="input-overlay" (click)="gameInput.focus()">
+        Click here or press any key to start typing
+      </div>
+    }
 
     <div id="game-inner">
 
-      <span
-        *ngFor="let word of selectedWords; let wordIndex = index"
-        class="word"
-      >
+      @for (word of selectedWords; track word; let wordIndex = $index) {
         <span
-          *ngFor="let charObj of word.letters; let charIndex = index"
-          [class.correct]="charObj.state === 'correct'"
-          [class.incorrect]="charObj.state === 'incorrect'"
-          [class.untyped]="charObj.state === 'untyped'"
-          [class.current]="charObj.index === currentIndex"
-          class="char"
-          >{{ charObj.char }}</span
-        >
-        <span> </span>
-      </span>
+          class="word"
+          >
+          @for (charObj of word.letters; track charObj; let charIndex = $index) {
+            <span
+              [class.correct]="charObj.state === 'correct'"
+              [class.incorrect]="charObj.state === 'incorrect'"
+              [class.untyped]="charObj.state === 'untyped'"
+              [class.current]="charObj.index === currentIndex"
+              class="char"
+              >{{ charObj.char }}</span
+              >
+            }
+            <span> </span>
+          </span>
+        }
+      </div>
     </div>
   </div>
-</div>
