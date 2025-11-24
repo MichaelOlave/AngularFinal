@@ -1,22 +1,39 @@
-#nav-dropdowns {
-  cursor: pointer;
-  color: #776;
-  &:hover {
-    color:#777;
-  }
-  margin: 5px;
-  font-size: xx-large;
-  text-align: center;
+.nav-bar {
+  @apply fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-[#0f172a]/90 backdrop-blur-md transition-all duration-300;
 }
 
-header {
-  position: relative;
-  z-index: 100;
-  background-color: white;
+.nav-container {
+  @apply max-w-7xl mx-auto px-6 h-16 flex items-center justify-between;
 }
 
-@media (prefers-color-scheme: dark) {
-  header {
-    background-color: #111827;
-  }
+.logo-wrapper {
+  @apply flex items-center gap-2 cursor-pointer;
+}
+
+.logo-icon {
+  @apply w-8 h-8 rounded-lg bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center text-white font-bold shadow-lg shadow-teal-500/20;
+}
+
+.logo-text {
+  @apply font-semibold text-white tracking-tight hidden sm:block;
+}
+
+.nav-menu {
+  @apply hidden lg:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/5;
+}
+
+.nav-item {
+  @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 text-slate-300 hover:text-white hover:bg-white/5;
+}
+
+.nav-item-active {
+  @apply text-teal-400 bg-white/10;
+}
+
+.version-badge {
+  @apply px-4 py-2 rounded-full bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 text-sm font-medium transition-colors border border-teal-500/20 flex items-center gap-2;
+}
+
+.version-indicator {
+  @apply w-2 h-2 rounded-full bg-teal-400 animate-pulse;
 }

@@ -1,24 +1,28 @@
-<header class="bg-white dark:bg-gray-900">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="md:flex md:items-center md:gap-12">
-        <a class="block text-teal-600 dark:text-teal-600" href="/">
-          <span class="text-4xl">{{ title() }}</span>
-        </a>
+<nav class="nav-bar" [class.shadow-xl]="scrolled()">
+  <div class="nav-container">
+    <div class="logo-wrapper" (click)="scrollTo('hero')">
+      <div class="logo-icon">
+        A
       </div>
-      
-        <nav aria-label="Global">
-          <mat-icon aria-hidden="false" aria-label="Example menu icon" fontIcon="menu" matButton [matMenuTriggerFor]="menu" id="nav-dropdowns"/>
-          
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="">Home</button>
-            <button mat-menu-item routerLink="/michael/dashboard">Michael</button>
-            <button mat-menu-item routerLink="/yeskey/dashboard">Yeskey</button>
-            <button mat-menu-item routerLink="/sean/dashboard">Sean</button>
-            <button mat-menu-item routerLink="/oskar/dashboard">Oskar</button>
-          </mat-menu>
-          
-        </nav>
-      </div>
+      <span class="logo-text">Angular<span class="text-teal-400">DeepDive</span></span>
     </div>
-</header>
+
+    <!-- Desktop Menu -->
+    <div class="nav-menu">
+      @for (item of navItems; track item.id) {
+      <button
+        (click)="scrollTo(item.id)"
+        class="nav-item"
+        [ngClass]="activeSection() === item.id ? 'nav-item-active' : ''"
+      >
+        {{ item.label }}
+      </button>
+      }
+    </div>
+
+    <button class="version-badge">
+      <span>v21.0.0</span>
+      <div class="version-indicator"></div>
+    </button>
+  </div>
+</nav>

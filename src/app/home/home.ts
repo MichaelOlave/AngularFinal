@@ -4,7 +4,7 @@ import { NgxGradientTextComponent } from '@omnedia/ngx-gradient-text';
 
 @Component({
   selector: 'app-home',
-  imports: [NgxDarkVeilComponent],
+  imports: [],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
