@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Components",
+    "desc": "The building blocks of UI. Self-contained units with HTML, CSS, and logic.",
+    "icon": "widgets",
+    "category": "core"
+  },
+  {
+    "title": "Signals",
+    "desc": "A reactive primitive for managing state and notifying the framework of changes.",
+    "icon": "sensors",
+    "category": "performance"
+  },
+  {
+    "title": "Dependency Injection",
+    "desc": "A design pattern to supply dependencies (services) to components efficiently.",
+    "icon": "share",
+    "category": "core"
+  },
+  {
+    "title": "Directives",
+    "desc": "Extend HTML capabilities. *ngIf, *ngFor, or custom behaviors attached to elements.",
+    "icon": "code",
+    "category": "core"
+  },
+  {
+    "title": "RxJS Integration",
+    "desc": "Powerful library for handling asynchronous data streams and events.",
+    "icon": "sync",
+    "category": "ecosystem"
+  },
+  {
+    "title": "Angular CLI",
+    "desc": "Command-line tool to initialize, develop, scaffold, and maintain applications.",
+    "icon": "terminal",
+    "category": "ecosystem"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "RxJS",
+    "description": "A library for reactive programming using Observables, to make it easier to compose asynchronous or callback-based code."
+  },
+  {
+    "name": "NgRx",
+    "description": "A framework for building reactive applications in Angular, inspired by Redux, using RxJS."
+  },
+  {
+    "name": "Angular Material",
+    "description": "A UI component library for Angular developers, based on Google's Material Design."
+  },
+  {
+    "name": "Nx",
+    "description": "A set of extensible dev tools for monorepos, which helps manage and scale Angular applications."
+  },
+  {
+    "name": "PrimeNG",
+    "description": "A rich set of open-source UI components for Angular applications."
+  },
+  {
+    "name": "Tailwind",
+    "description": "A utility-first CSS framework for rapidly building custom user interfaces."
+  },
+  {
+    "name": "Jasmine/Karma",
+    "description": "Jasmine is a behavior-driven development framework for testing JavaScript code. Karma is a test runner that fits well with Jasmine for running tests in multiple browsers."
+  },
+  {
+    "name": "Cypress",
+    "description": "A front-end testing tool built for the modern web, enabling fast, easy, and reliable testing for anything that runs in a browser."
+  }
+]

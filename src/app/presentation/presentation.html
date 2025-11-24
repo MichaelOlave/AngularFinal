@@ -1,0 +1,67 @@
+<div class="page-container">
+  <!-- 1. INTRO SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="material-icons text-xs">verified</span>
+          The Platform for Web Greatness
+        </div>
+
+        <h1 class="hero-title">
+          Exploring the
+          <span class="hero-gradient-text">
+            Angular Framework
+          </span>
+        </h1>
+
+        <p class="hero-subtitle">
+          A component-based framework for building scalable web applications. Created by Google,
+          powered by TypeScript, and loved by enterprises worldwide.
+        </p>
+
+        <div class="install-command-wrapper">
+          <div class="install-command">
+            <span>npm install -g &#64;angular/cli</span>
+            <button class="copy-button">
+              <svg class="copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Preview Visual -->
+      <app-code-terminal
+        fileName="{{ activeFile() }}"
+        [codeLines]="codeLines()"
+      ></app-code-terminal>
+    </div>
+  </section>
+
+  <!-- 1. ORIGINS (Timeline) -->
+  <app-timeline></app-timeline>
+  <!-- 2. CORE CONCEPTS (Grid) -->
+  <app-core-concepts></app-core-concepts>
+  <!-- 3. Applications (Grid) -->
+  <!-- 4. Documentation (Cards) -->
+  <!-- 6. PERFORMANCE (Visual) -->
+  <app-performance></app-performance>
+  <!-- 7. ECOSYSTEM & COMMUNITY -->
+  <app-ecosystem-community></app-ecosystem-community>
+  <!-- 8. CASE STUDIES (Usage) -->
+  <app-case-studies></app-case-studies>
+  <!-- 10. FUTURE -->
+  <app-future></app-future>
+  <!-- 11. COMPARISONS -->
+  <app-comparisons></app-comparisons>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+</div>

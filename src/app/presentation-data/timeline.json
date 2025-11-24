@@ -1,0 +1,32 @@
+[
+  {
+    "year": "2010",
+    "title": "AngularJS (v1)",
+    "desc": "Released by Google (Miško Hevery). Revolutionized two-way data binding."
+  },
+  {
+    "year": "2016",
+    "title": "Angular 2",
+    "desc": "Complete rewrite. TypeScript introduced. Component-based architecture."
+  },
+  {
+    "year": "2019",
+    "title": "Ivy Compiler",
+    "desc": "Smaller bundles, faster compilation, and better debugging."
+  },
+  {
+    "year": "2023",
+    "title": "Angular Renaissance (v17+)",
+    "desc": "Signals, Standalone Components, Deferrable Views, Hydration."
+  },
+  {
+    "year": "2024",
+    "title": "Angular 18+",
+    "desc": "Framework cleanup and modernization, everything faster and more consistent."
+  },
+  {
+    "year": "2025",
+    "title": "Angular 21+",
+    "desc": "Anticipated advancements in performance, developer experience, and ecosystem growth."
+  }
+]

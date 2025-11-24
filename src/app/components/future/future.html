@@ -1,0 +1,28 @@
+<section id="future" class="py-24 px-6 relative bg-gradient-to-b from-[#0f172a] to-[#0b1120]">
+  <div class="max-w-3xl mx-auto text-center">
+    <span class="text-teal-400 font-bold tracking-widest text-sm uppercase mb-4 block"
+      >The Roadmap</span
+    >
+    <h2 class="text-4xl font-bold text-white mb-8">Future Trends</h2>
+
+    <div class="space-y-6 text-left">
+      @for (point of futurePoints(); track point.id) {
+      <div
+        class="flex gap-6 p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-teal-500/30 transition-colors"
+      >
+        <div class="text-teal-400 font-bold text-xl opacity-50">
+          {{ point.id }}
+        </div>
+        <div>
+          <h3 class="text-white font-bold text-lg">
+            {{ point.point }}
+          </h3>
+          <p class="text-slate-400 mt-2">
+            {{ point.description }}
+          </p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

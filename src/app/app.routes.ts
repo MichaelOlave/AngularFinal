@@ -10,6 +10,13 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'presentation',
+    loadComponent: async () => {
+      const m = await import('./presentation/presentation');
+      return m.Presentation;
+    },
+  },
+  {
     path: 'michael/dashboard',
     loadComponent: async () => {
       const m = await import('./michael/dashboard/dashboard');

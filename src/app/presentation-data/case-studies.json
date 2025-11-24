@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "name": "Gmail",
+    "type": "Productivity",
+    "description": "One of the largest Single Page Applications in the world.",
+    "impact": "Seamless updates & real-time data.",
+    "logoColor": "#ea4335"
+  },
+  {
+    "id": "2",
+    "name": "Deutsche Bank",
+    "type": "Finance",
+    "description": "Developer portal and internal banking tools.",
+    "impact": "High security & standardized UI.",
+    "logoColor": "#0018a8"
+  },
+  {
+    "id": "3",
+    "name": "Microsoft Office",
+    "type": "Enterprise",
+    "description": "Office 365 web apps utilize Angular for specific modules.",
+    "impact": "Complex state management.",
+    "logoColor": "#d83b01"
+  },
+  {
+    "id": "4",
+    "name": "Forbes",
+    "type": "Media",
+    "description": "News platform optimized for fast reading experiences.",
+    "impact": "Progressive Web App (PWA) support.",
+    "logoColor": "#333333"
+  },
+  {
+    "id": "5",
+    "name": "Universal Studios Orlando Resort",
+    "type": "Entertainment",
+    "description": "Theme park and resort management platform.",
+    "impact": "Enhanced guest experience through real-time updates.",
+    "logoColor": "#6fda44"
+  },
+  {
+    "id": "6",
+    "name": "Chrome Music Lab",
+    "type": "Education",
+    "description": "Interactive music learning tools.",
+    "impact": "Engaging educational content.",
+    "logoColor": "#6fda44"
+  },
+  {
+    "id": "7",
+    "name": "Getty Images",
+    "type": "Media",
+    "description": "Extensive image library with advanced search features.",
+    "impact": "Optimized media delivery.",
+    "logoColor": "#6fda44"
+  },
+  {
+    "id": "8",
+    "name": "Upwork",
+    "type": "Freelance Marketplace",
+    "description": "Platform connecting freelancers with clients worldwide.",
+    "impact": "Scalable architecture for high traffic.",
+    "logoColor": "#6fda44"
+  }
+]

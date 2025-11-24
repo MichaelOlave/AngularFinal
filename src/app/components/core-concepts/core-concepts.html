@@ -1,0 +1,38 @@
+<section id="concepts" class="py-24 px-6 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="text-teal-400 font-mono text-sm tracking-wider uppercase mb-2 block"
+        >Architecture</span
+      >
+      <h2 class="text-4xl font-bold text-white mb-6">Core Concepts</h2>
+      <p class="text-xl text-slate-400 max-w-2xl">
+        Angular is opinionated but flexible. It provides a cohesive set of tools for every part of
+        the development lifecycle.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (concept of concepts(); track concept.title) {
+      <div
+        class="group relative bg-slate-800/30 border border-white/5 rounded-2xl p-8 hover:bg-slate-800/50 transition-all duration-300 hover:-translate-y-1"
+      >
+        <div
+          class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"
+        >
+          <span class="material-icons text-6xl text-white">{{ concept.icon }}</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3 flex items-center gap-2">
+          {{ concept.title }}
+        </h3>
+        <p class="text-slate-400 leading-relaxed">{{ concept.desc }}</p>
+        <div class="mt-6 flex gap-2">
+          <span
+            class="text-xs font-mono py-1 px-2 rounded bg-white/5 text-teal-400 border border-teal-500/10"
+            >{{ concept.category }}</span
+          >
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

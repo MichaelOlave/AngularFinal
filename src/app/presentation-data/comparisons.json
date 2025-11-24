@@ -1,0 +1,18 @@
+[
+  {
+    "metric": "Philosophy",
+    "angular": "Full Framework (All-in-one)",
+    "others": "Library (Needs 3rd party tools)"
+  },
+  {
+    "metric": "Language",
+    "angular": "TypeScript (Strict typing)",
+    "others": "JavaScript / TS Optional"
+  },
+  { "metric": "DOM Updates", "angular": "Incremental DOM / Signals", "others": "Virtual DOM" },
+  {
+    "metric": "State Mgmt",
+    "angular": "Services / Signals / RxJS",
+    "others": "Redux / Context / Pinia"
+  }
+]

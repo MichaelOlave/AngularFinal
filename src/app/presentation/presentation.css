@@ -1,0 +1,47 @@
+.page-container {
+  @apply min-h-screen bg-[#0f172a] text-slate-300 font-sans selection:bg-teal-500/30 overflow-x-hidden;
+}
+
+.hero-section {
+  @apply relative min-h-screen flex items-center pt-20 overflow-hidden;
+}
+
+.hero-grid {
+  @apply max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center;
+}
+
+.hero-content {
+  @apply animate-fade-in-up;
+}
+
+.hero-badge {
+  @apply inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-sm mb-6;
+}
+
+.hero-title {
+  @apply text-5xl sm:text-7xl font-bold tracking-tight text-white mb-6 leading-tight;
+}
+
+.hero-gradient-text {
+  @apply bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 bg-clip-text text-transparent;
+}
+
+.hero-subtitle {
+  @apply text-xl text-slate-400 mb-8 leading-relaxed max-w-xl;
+}
+
+.install-command-wrapper {
+  @apply flex flex-wrap gap-4;
+}
+
+.install-command {
+  @apply flex items-center gap-4 px-6 text-sm text-slate-500 font-mono;
+}
+
+.copy-button {
+  @apply hover:text-white transition-colors;
+}
+
+.copy-icon {
+  @apply w-4 h-4;
+}

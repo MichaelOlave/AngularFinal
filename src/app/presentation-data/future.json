@@ -1,0 +1,37 @@
+[
+  {
+    "id": "01",
+    "point": "Zone-less Applications",
+    "description": "Moving away from Zone.js completely in favor of Signals for lighter, faster applications."
+  },
+  {
+    "id": "02",
+    "point": "Partial Hydration",
+    "description": "Hydrating only the parts of the page that are interactive, further reducing initial load times."
+  },
+  {
+    "id": "03",
+    "point": "Simplified Learning Path",
+    "description": "Continued emphasis on standalone components and functional APIs to lower the barrier to entry."
+  },
+  {
+    "id": "04",
+    "point": "Selector-less Components",
+    "description": "They’re designing a way so you don’t always need a selector when creating a component/directive."
+  },
+  {
+    "id": "05",
+    "point": "MCP Server Tools",
+    "description": "New MCP Server tools to improve AI-powered workflow & code generation"
+  },
+  {
+    "id": "06",
+    "point": "Angular ARIA Package",
+    "description": "New details about the Angular Accessible Rich Internet Applications (ARIA) package (A set of attributes that can be added to HTML elements to increase their accessibility)"
+  },
+  {
+    "id": "07",
+    "point": "Signal Forms",
+    "description": "Introduction of Signal Forms, a new way to handle forms in Angular using Signals for better reactivity and performance."
+  }
+]

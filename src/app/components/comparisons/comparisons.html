@@ -1,0 +1,50 @@
+<section id="comparison" class="py-24 px-6 bg-[#0b1120] border-t border-white/5">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold text-white mb-10 text-center">The Framework Advantage</h2>
+
+    <div class="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+      <table class="w-full text-left text-sm text-slate-400">
+        <thead class="bg-slate-800/80 text-white uppercase text-xs font-bold tracking-wider">
+          <tr>
+            <th class="p-6">Feature</th>
+            <th class="p-6 text-teal-400">Angular</th>
+            <th class="p-6">Libraries (React/Vue)</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/5 bg-[#1e293b]/50">
+          @for (row of comparisons; track row.metric) {
+          <tr class="hover:bg-white/5 transition-colors">
+            <td class="p-6 font-medium text-white">{{ row.metric }}</td>
+            <td class="p-6 text-teal-300">{{ row.angular }}</td>
+            <td class="p-6">{{ row.others }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-8">
+      <div class="bg-green-500/5 border border-green-500/10 rounded-xl p-6">
+        <h3 class="text-green-400 font-bold mb-2 flex items-center gap-2">
+          <span class="material-icons">thumb_up</span> Pros
+        </h3>
+        <ul class="space-y-2 text-slate-300 text-sm list-disc pl-5">
+          <li>"Batteries included" - Router, Http, Forms built-in</li>
+          <li>Consistent architecture across teams/projects</li>
+          <li>Powerful CLI for scaffolding and updates</li>
+          <li>TypeScript by default = better maintainability</li>
+        </ul>
+      </div>
+      <div class="bg-red-500/5 border border-red-500/10 rounded-xl p-6">
+        <h3 class="text-red-400 font-bold mb-2 flex items-center gap-2">
+          <span class="material-icons">warning</span> Cons
+        </h3>
+        <ul class="space-y-2 text-slate-300 text-sm list-disc pl-5">
+          <li>Steeper initial learning curve</li>
+          <li>More boilerplate than lightweight libraries</li>
+          <li>Can be overkill for simple static sites</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
