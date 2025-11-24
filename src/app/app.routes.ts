@@ -5,8 +5,8 @@ export const routes: Routes = [
     path: '',
     pathMatch: 'full',
     loadComponent: async () => {
-      const m = await import('./home/home');
-      return m.Home;
+      const m = await import('./presentation/presentation');
+      return m.Presentation;
     },
   },
   {
