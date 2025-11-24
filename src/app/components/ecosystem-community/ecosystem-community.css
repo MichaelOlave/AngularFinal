@@ -1,0 +1,43 @@
+.ecosystem-section {
+  @apply py-24 px-6;
+}
+
+.ecosystem-container {
+  @apply max-w-7xl mx-auto text-center;
+}
+
+.ecosystem-title {
+  @apply text-3xl font-bold text-white mb-12;
+}
+
+.stats-grid {
+  @apply grid grid-cols-2 md:grid-cols-4 gap-8 mb-16;
+}
+
+.stat-card {
+  @apply p-6;
+}
+
+.stat-value {
+  @apply text-4xl font-bold text-white mb-2;
+}
+
+.stat-label {
+  @apply text-slate-500;
+}
+
+.tools-section-title {
+  @apply text-xl font-semibold text-white mb-8;
+}
+
+.tools-grid {
+  @apply grid grid-cols-2 md:grid-cols-4 justify-center gap-4;
+}
+
+.tool-card {
+  @apply px-6 py-3 rounded-full bg-slate-800 border border-slate-700 text-slate-300 hover:text-white hover:border-teal-500 transition-colors duration-200 cursor-pointer text-sm md:text-base flex flex-col items-center text-center;
+}
+
+.tool-description {
+  @apply text-sm text-slate-400 mt-1;
+}
