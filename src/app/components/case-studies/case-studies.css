@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
 .case-studies-section {
-  @apply py-24 px-6 bg-[#0f172a];
+  @apply py-24 px-6;
+  background-color: var(--app-bg-primary);
 }
 
 .case-studies-container {
@@ -13,11 +14,13 @@
 }
 
 .case-studies-title {
-  @apply text-3xl font-bold text-white;
+  @apply text-3xl font-bold;
+  color: var(--app-text-primary);
 }
 
 .case-studies-subtitle {
-  @apply text-slate-400 mt-4;
+  @apply mt-4;
+  color: var(--app-text-muted);
 }
 
 .case-studies-grid {
@@ -25,23 +28,35 @@
 }
 
 .case-study-card {
-  @apply bg-slate-800/20 border border-slate-700/50 hover:border-teal-500/50 rounded-2xl p-6 transition-all hover:bg-slate-800/40;
+  @apply rounded-2xl p-6 transition-all;
+  background-color: color-mix(in srgb, var(--app-bg-card) 20%, transparent);
+  border: 1px solid color-mix(in srgb, #334155 50%, transparent);
+}
+
+.case-study-card:hover {
+  background-color: color-mix(in srgb, var(--app-bg-card) 40%, transparent);
+  border-color: color-mix(in srgb, var(--app-accent-dark) 50%, transparent);
 }
 
 .case-study-logo {
-  @apply h-12 w-12 rounded-lg mb-4 flex items-center justify-center text-white font-bold text-xl;
+  @apply h-12 w-12 rounded-lg mb-4 flex items-center justify-center font-bold text-xl;
+  color: var(--app-text-primary);
 }
 
 .case-study-name {
-  @apply text-white font-bold text-lg mb-1;
+  @apply font-bold text-lg mb-1;
+  color: var(--app-text-primary);
 }
 
 .case-study-type {
-  @apply text-xs text-teal-500 font-medium px-2 py-0.5 rounded bg-teal-500/10 mb-4 inline-block;
+  @apply text-xs font-medium px-2 py-0.5 rounded mb-4 inline-block;
+  color: var(--app-accent-dark);
+  background-color: color-mix(in srgb, var(--app-accent-dark) 10%, transparent);
 }
 
 .case-study-description {
-  @apply text-sm text-slate-400 mb-4;
+  @apply text-sm mb-4;
+  color: var(--app-text-muted);
 }
 
 .case-study-impact {

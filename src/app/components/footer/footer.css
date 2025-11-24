@@ -9,7 +9,9 @@
 }
 
 .footer-logo {
-  @apply w-12 h-12 rounded-lg bg-gradient-to-br from-teal-600 to-blue-700 flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6;
+  @apply w-12 h-12 rounded-lg flex items-center justify-center text-3xl font-bold mx-auto mb-6;
+  background: linear-gradient(to bottom right, #0d9488, #1d4ed8);
+  color: var(--app-text-primary);
 }
 
 .footer-text {

@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
 .nav-bar {
-  @apply fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-[#0f172a]/90 backdrop-blur-md transition-all duration-300;
+  @apply fixed top-0 inset-x-0 z-50 border-b border-white/5 backdrop-blur-md transition-all duration-300;
+  background-color: color-mix(in srgb, var(--app-bg-primary) 90%, transparent);
 }
 
 .nav-container {
@@ -13,11 +14,15 @@
 }
 
 .logo-icon {
-  @apply w-8 h-8 rounded-lg bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center text-white font-bold shadow-lg shadow-teal-500/20;
+  @apply w-8 h-8 rounded-lg flex items-center justify-center font-bold shadow-lg;
+  background: linear-gradient(to bottom right, var(--app-accent-dark), #3b82f6);
+  color: var(--app-text-primary);
+  box-shadow: 0 10px 15px -3px color-mix(in srgb, var(--app-accent-dark) 20%, transparent);
 }
 
 .logo-text {
-  @apply font-semibold text-white tracking-tight hidden sm:block;
+  @apply font-semibold tracking-tight hidden sm:block;
+  color: var(--app-text-primary);
 }
 
 .nav-menu {
@@ -25,17 +30,31 @@
 }
 
 .nav-item {
-  @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 text-slate-300 hover:text-white hover:bg-white/5;
+  @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/5;
+  color: var(--app-text-secondary);
+}
+
+.nav-item:hover {
+  color: var(--app-text-primary);
 }
 
 .nav-item-active {
-  @apply text-teal-400 bg-white/10;
+  @apply bg-white/10;
+  color: var(--app-accent);
 }
 
 .version-badge {
-  @apply px-4 py-2 rounded-full bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 text-sm font-medium transition-colors border border-teal-500/20 flex items-center gap-2;
+  @apply px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2;
+  background-color: color-mix(in srgb, var(--app-accent-dark) 10%, transparent);
+  color: var(--app-accent);
+  border: 1px solid color-mix(in srgb, var(--app-accent-dark) 20%, transparent);
+}
+
+.version-badge:hover {
+  background-color: color-mix(in srgb, var(--app-accent-dark) 20%, transparent);
 }
 
 .version-indicator {
-  @apply w-2 h-2 rounded-full bg-teal-400 animate-pulse;
+  @apply w-2 h-2 rounded-full animate-pulse;
+  background-color: var(--app-accent);
 }

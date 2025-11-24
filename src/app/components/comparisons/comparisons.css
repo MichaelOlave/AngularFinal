@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
 .comparisons-section {
-  @apply py-24 px-6 bg-[#0b1120] border-t border-white/5;
+  @apply py-24 px-6 border-t border-white/5;
+  background-color: var(--app-bg-secondary);
 }
 
 .comparisons-container {
@@ -9,7 +10,8 @@
 }
 
 .comparisons-title {
-  @apply text-3xl font-bold text-white mb-10 text-center;
+  @apply text-3xl font-bold mb-10 text-center;
+  color: var(--app-text-primary);
 }
 
 .comparison-table-wrapper {
@@ -17,11 +19,14 @@
 }
 
 .comparison-table {
-  @apply w-full text-left text-sm text-slate-400;
+  @apply w-full text-left text-sm;
+  color: var(--app-text-muted);
 }
 
 .comparison-table-header {
-  @apply bg-slate-800/80 text-white uppercase text-xs font-bold tracking-wider;
+  @apply uppercase text-xs font-bold tracking-wider;
+  background-color: color-mix(in srgb, var(--app-bg-card) 80%, transparent);
+  color: var(--app-text-primary);
 }
 
 .comparison-table-header-cell {
@@ -29,11 +34,13 @@
 }
 
 .comparison-table-header-angular {
-  @apply p-6 text-teal-400;
+  @apply p-6;
+  color: var(--app-accent);
 }
 
 .comparison-table-body {
-  @apply divide-y divide-white/5 bg-[#1e293b]/50;
+  @apply divide-y divide-white/5;
+  background-color: color-mix(in srgb, var(--app-bg-card) 50%, transparent);
 }
 
 .comparison-table-row {
@@ -41,11 +48,13 @@
 }
 
 .comparison-table-metric {
-  @apply p-6 font-medium text-white;
+  @apply p-6 font-medium;
+  color: var(--app-text-primary);
 }
 
 .comparison-table-angular {
-  @apply p-6 text-teal-300;
+  @apply p-6;
+  color: var(--app-accent-light);
 }
 
 .comparison-table-others {

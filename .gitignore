@@ -44,3 +44,6 @@ Thumbs.db
 
 # Disable yarn.lock file
 /yarn.lock
+
+# Local Files
+THEME-USAGE.md

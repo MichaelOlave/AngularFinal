@@ -13,15 +13,18 @@
 }
 
 .concepts-label {
-  @apply text-teal-400 font-mono text-sm tracking-wider uppercase mb-2 block;
+  @apply font-mono text-sm tracking-wider uppercase mb-2 block;
+  color: var(--app-accent);
 }
 
 .concepts-title {
-  @apply text-4xl font-bold text-white mb-6;
+  @apply text-4xl font-bold mb-6;
+  color: var(--app-text-primary);
 }
 
 .concepts-subtitle {
-  @apply text-xl text-slate-400 max-w-2xl;
+  @apply text-xl max-w-2xl;
+  color: var(--app-text-muted);
 }
 
 .concepts-grid {
@@ -29,7 +32,12 @@
 }
 
 .concept-card {
-  @apply relative bg-slate-800/30 border border-white/5 rounded-2xl p-8 hover:bg-slate-800/50 transition-all duration-300 hover:-translate-y-1;
+  @apply relative border border-white/5 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1;
+  background-color: color-mix(in srgb, var(--app-bg-card) 30%, transparent);
+}
+
+.concept-card:hover {
+  background-color: color-mix(in srgb, var(--app-bg-card) 50%, transparent);
 }
 
 .concept-icon-bg {
@@ -37,15 +45,18 @@
 }
 
 .concept-icon {
-  @apply text-6xl text-white;
+  @apply text-6xl;
+  color: var(--app-text-primary);
 }
 
 .concept-title {
-  @apply text-xl font-bold text-white mb-3 flex items-center gap-2;
+  @apply text-xl font-bold mb-3 flex items-center gap-2;
+  color: var(--app-text-primary);
 }
 
 .concept-desc {
-  @apply text-slate-400 leading-relaxed;
+  @apply leading-relaxed;
+  color: var(--app-text-muted);
 }
 
 .concept-tags {
@@ -53,5 +64,7 @@
 }
 
 .concept-tag {
-  @apply text-xs font-mono py-1 px-2 rounded bg-white/5 text-teal-400 border border-teal-500/10;
+  @apply text-xs font-mono py-1 px-2 rounded bg-white/5;
+  color: var(--app-accent);
+  border: 1px solid color-mix(in srgb, var(--app-accent-dark) 10%, transparent);
 }
