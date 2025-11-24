@@ -10,10 +10,10 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'presentation',
+    path: 'projectgallery',
     loadComponent: async () => {
-      const m = await import('./presentation/presentation');
-      return m.Presentation;
+      const m = await import('./projectgallery/projectgallery');
+      return m.Projectgallery;
     },
   },
   {

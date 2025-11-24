@@ -3,6 +3,46 @@
 @import 'tailwindcss/preflight' layer(base);
 @import 'tailwindcss/utilities' layer(utilities);
 
+/*
+  =====================================================
+  GLOBAL COLOR SCHEME - Edit these to change colors!
+  =====================================================
+
+  To change the entire app's color scheme:
+  1. Update the hex values below
+  2. Save the file
+  3. The app will hot-reload with new colors
+
+  Current theme: Dark Blue + Teal Accent
+*/
+
+:root {
+  /* === BACKGROUND COLORS === */
+  --app-bg-primary: #0f172a; /* Main background (slate-900) */
+  --app-bg-secondary: #0b1120; /* Section backgrounds (darker) */
+  --app-bg-tertiary: #080c17; /* Darkest sections */
+  --app-bg-card: #1e293b; /* Card/container backgrounds */
+
+  /* === ACCENT COLORS === */
+  --app-accent: #2dd4bf; /* Primary accent (teal-400) - Change this for different theme! */
+  --app-accent-light: #5eead4; /* Lighter accent (teal-300) */
+  --app-accent-dark: #14b8a6; /* Darker accent (teal-500) */
+
+  /* === TEXT COLORS === */
+  --app-text-primary: #ffffff;
+  --app-text-secondary: #cbd5e1; /* slate-300 */
+  --app-text-muted: #94a3b8; /* slate-400 */
+
+  /*
+    EXAMPLE: Purple Theme
+    Uncomment below and comment out the teal colors above:
+
+    --app-accent: #a78bfa;
+    --app-accent-light: #c4b5fd;
+    --app-accent-dark: #8b5cf6;
+  */
+}
+
 html,
 body {
   height: 100%;
@@ -28,6 +68,10 @@ body {
   .animate-fade-in-right {
     animation: fadeInRight 0.8s ease-out;
   }
+
+  .animate-zoom-in {
+    animation: zoomInCard 0.35s ease-out forwards;
+  }
 }
 
 @keyframes fadeInUp {
@@ -49,5 +93,16 @@ body {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes zoomInCard {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0.4;
   }
 }

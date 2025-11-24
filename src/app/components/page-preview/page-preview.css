@@ -1,0 +1,26 @@
+.preview-card {
+  width: 350px; /* fixed card size */
+  height: 220px; /* fixed card size */
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+  background: var(--app-bg-card);
+  border: 1px solid color-mix(in srgb, var(--app-text-muted) 20%, transparent);
+  box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.2);
+  transform: translateZ(0);
+  isolation: isolate;
+}
+
+.scaled-content {
+  transform-origin: top left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.scaled-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
