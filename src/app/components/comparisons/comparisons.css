@@ -1,0 +1,75 @@
+.comparisons-section {
+  @apply py-24 px-6 bg-[#0b1120] border-t border-white/5;
+}
+
+.comparisons-container {
+  @apply max-w-4xl mx-auto;
+}
+
+.comparisons-title {
+  @apply text-3xl font-bold text-white mb-10 text-center;
+}
+
+.comparison-table-wrapper {
+  @apply overflow-hidden rounded-2xl border border-white/10 shadow-2xl;
+}
+
+.comparison-table {
+  @apply w-full text-left text-sm text-slate-400;
+}
+
+.comparison-table-header {
+  @apply bg-slate-800/80 text-white uppercase text-xs font-bold tracking-wider;
+}
+
+.comparison-table-header-cell {
+  @apply p-6;
+}
+
+.comparison-table-header-angular {
+  @apply p-6 text-teal-400;
+}
+
+.comparison-table-body {
+  @apply divide-y divide-white/5 bg-[#1e293b]/50;
+}
+
+.comparison-table-row {
+  @apply hover:bg-white/5 transition-colors;
+}
+
+.comparison-table-metric {
+  @apply p-6 font-medium text-white;
+}
+
+.comparison-table-angular {
+  @apply p-6 text-teal-300;
+}
+
+.comparison-table-others {
+  @apply p-6;
+}
+
+.pros-cons-grid {
+  @apply mt-12 grid md:grid-cols-2 gap-8;
+}
+
+.pros-card {
+  @apply bg-green-500/5 border border-green-500/10 rounded-xl p-6;
+}
+
+.pros-header {
+  @apply text-green-400 font-bold mb-2 flex items-center gap-2;
+}
+
+.cons-card {
+  @apply bg-red-500/5 border border-red-500/10 rounded-xl p-6;
+}
+
+.cons-header {
+  @apply text-red-400 font-bold mb-2 flex items-center gap-2;
+}
+
+.pros-cons-list {
+  @apply space-y-2 text-slate-300 text-sm list-disc pl-5;
+}
