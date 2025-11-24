@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 .future-section {
   @apply py-24 px-6 relative bg-gradient-to-b from-[#0f172a] to-[#0b1120];
 }

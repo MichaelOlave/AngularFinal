@@ -11,9 +11,9 @@
 
     <div class="concepts-grid">
       @for (concept of concepts(); track concept.title) {
-      <div class="concept-card">
+      <div class="concept-card group">
         <div class="concept-icon-bg">
-          <span class="concept-icon">{{ concept.icon }}</span>
+          <span class="material-icons concept-icon">{{ concept.icon }}</span>
         </div>
         <h3 class="concept-title">
           {{ concept.title }}

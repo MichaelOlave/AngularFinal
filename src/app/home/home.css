@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 .page-container {
   @apply min-h-screen bg-[#0f172a] text-slate-300 font-sans selection:bg-teal-500/30 overflow-x-hidden;
 }
@@ -11,7 +13,6 @@
 }
 
 .hero-content {
-  @apply animate-fade-in-up;
 }
 
 .hero-badge {

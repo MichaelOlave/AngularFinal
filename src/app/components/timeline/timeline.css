@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 .timeline-section {
   @apply py-24 bg-[#0b1120] border-y border-white/5;
 }
@@ -31,11 +33,19 @@
 }
 
 .timeline-event {
-  @apply relative flex flex-col md:flex-row gap-8 md:gap-0 items-start md:items-center group;
+  @apply relative flex flex-col md:flex-row gap-8 md:gap-0 items-start md:items-center;
 }
 
 .timeline-event-content {
   @apply md:w-1/2 flex justify-end md:pr-12;
+}
+
+.timeline-event-content-left {
+  @apply md:order-1;
+}
+
+.timeline-event-content-right {
+  @apply md:order-2 md:justify-start md:pl-12 md:pr-0;
 }
 
 .timeline-event-card {

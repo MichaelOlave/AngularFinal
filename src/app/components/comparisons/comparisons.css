@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 .comparisons-section {
   @apply py-24 px-6 bg-[#0b1120] border-t border-white/5;
 }

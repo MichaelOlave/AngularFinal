@@ -1,5 +1,7 @@
+@import 'tailwindcss';
+
 .terminal-wrapper {
-  @apply relative hidden lg:block animate-fade-in-right;
+  @apply relative hidden lg:block;
 }
 
 .terminal-bg-gradient {
@@ -31,5 +33,5 @@
 }
 
 .terminal-code {
-  @apply overflow-x-auto overflow-y-auto max-h-96 no-scrollbar;
+  @apply overflow-x-auto overflow-y-auto max-h-96;
 }

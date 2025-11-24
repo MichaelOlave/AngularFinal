@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { loadJSON } from '../../utils/load-json';
 
 interface CaseStudy {
@@ -17,11 +17,12 @@ interface CaseStudy {
   styleUrl: './case-studies.css',
 })
 export class CaseStudies implements OnInit {
-  caseStudies: CaseStudy[] = [];
+  caseStudies = signal<CaseStudy[]>([]);
+
   ngOnInit() {
     loadJSON<CaseStudy[]>('case-studies.json').then((data) => {
       console.log('Case Studies data loaded:', data);
-      this.caseStudies = data;
+      this.caseStudies.set(data);
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { loadJSON } from '../../utils/load-json';
 
 interface EcosystemItem {
@@ -13,10 +13,11 @@ interface EcosystemItem {
   styleUrl: './ecosystem-community.css',
 })
 export class EcosystemCommunity implements OnInit {
-  ecosystemItems: EcosystemItem[] = [];
+  ecosystemItems = signal<EcosystemItem[]>([]);
+
   ngOnInit(): void {
     loadJSON<EcosystemItem[]>('tools.json').then((data) => {
-      this.ecosystemItems = data;
+      this.ecosystemItems.set(data);
     });
   }
 }

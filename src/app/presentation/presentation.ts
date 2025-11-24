@@ -37,8 +37,24 @@ export class Presentation implements OnInit {
   constructor(private fileService: FileService) {}
 
   async ngOnInit() {
-    this.codeLines.set(await this.fileService.getFileLines('app.ts'));
-    console.log(this.codeLines());
+    try {
+      this.codeLines.set(await this.fileService.getFileLines('app.ts'));
+      console.log(this.codeLines());
+    } catch (error) {
+      console.error('Failed to load code preview:', error);
+      // Fallback to sample code
+      this.codeLines.set([
+        "import { Component } from '@angular/core';",
+        '',
+        '@Component({',
+        "  selector: 'app-root',",
+        '  template: `<h1>Hello Angular!</h1>`',
+        '})',
+        'export class AppComponent {',
+        "  title = 'Angular App';",
+        '}'
+      ]);
+    }
   }
 
   navItems = [

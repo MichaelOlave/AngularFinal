@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { loadJSON } from '../../utils/load-json';
 
 interface Comparison {
@@ -14,10 +14,11 @@ interface Comparison {
   styleUrl: './comparisons.css',
 })
 export class Comparisons implements OnInit {
-  comparisons: Comparison[] = [];
+  comparisons = signal<Comparison[]>([]);
+
   ngOnInit() {
     loadJSON<Comparison[]>('comparisons.json').then((data) => {
-      this.comparisons = data;
+      this.comparisons.set(data);
     });
   }
 }

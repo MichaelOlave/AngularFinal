@@ -8,8 +8,8 @@
     </div>
 
     <div class="case-studies-grid">
-      @for (study of caseStudies; track study.id) {
-      <div class="case-study-card">
+      @for (study of caseStudies(); track study.id) {
+      <div class="case-study-card group">
         <div
           class="case-study-logo"
           [style.background-color]="study.logoColor"

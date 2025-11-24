@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 .nav-bar {
   @apply fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-[#0f172a]/90 backdrop-blur-md transition-all duration-300;
 }

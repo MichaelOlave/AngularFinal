@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 .concepts-section {
   @apply py-24 px-6 relative overflow-hidden;
 }
@@ -27,7 +29,7 @@
 }
 
 .concept-card {
-  @apply group relative bg-slate-800/30 border border-white/5 rounded-2xl p-8 hover:bg-slate-800/50 transition-all duration-300 hover:-translate-y-1;
+  @apply relative bg-slate-800/30 border border-white/5 rounded-2xl p-8 hover:bg-slate-800/50 transition-all duration-300 hover:-translate-y-1;
 }
 
 .concept-icon-bg {
@@ -35,7 +37,7 @@
 }
 
 .concept-icon {
-  @apply material-icons text-6xl text-white;
+  @apply text-6xl text-white;
 }
 
 .concept-title {

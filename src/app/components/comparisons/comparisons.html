@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody class="comparison-table-body">
-          @for (row of comparisons; track row.metric) {
+          @for (row of comparisons(); track row.metric) {
           <tr class="comparison-table-row">
             <td class="comparison-table-metric">{{ row.metric }}</td>
             <td class="comparison-table-angular">{{ row.angular }}</td>

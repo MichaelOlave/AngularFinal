@@ -23,7 +23,7 @@
 
     <h3 class="tools-section-title">Essential Tools</h3>
     <div class="tools-grid">
-      @for (tool of ecosystemItems; track tool) {
+      @for (tool of ecosystemItems(); track tool) {
       <span class="tool-card">
         {{ tool.name }}
         <p class="tool-description">{{ tool.description }}</p>

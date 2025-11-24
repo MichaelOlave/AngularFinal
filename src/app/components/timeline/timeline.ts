@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { loadJSON } from '../../utils/load-json';
+import { NgClass } from '@angular/common';
 
 interface TimelineEvent {
   year: string;
@@ -9,16 +10,17 @@ interface TimelineEvent {
 
 @Component({
   selector: 'app-timeline',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './timeline.html',
   styleUrl: './timeline.css',
 })
 export class Timeline implements OnInit {
-  timeline: TimelineEvent[] = [];
+  timeline = signal<TimelineEvent[]>([]);
+
   ngOnInit() {
     loadJSON<TimelineEvent[]>('timeline.json').then((data) => {
       console.log('Timeline data loaded:', data);
-      this.timeline = data;
+      this.timeline.set(data);
     });
   }
 }

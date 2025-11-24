@@ -13,14 +13,14 @@
       <div class="timeline-line"></div>
 
       <div class="timeline-events">
-        @for (event of timeline; track event.year; let i = $index) {
-        <div class="timeline-event">
+        @for (event of timeline(); track event.year; let i = $index) {
+        <div class="timeline-event group">
           <div
             class="timeline-event-content"
-            [class.md:order-1]="i % 2 === 0"
-            [class.md:order-2]="i % 2 !== 0"
-            [class.md:justify-start]="i % 2 !== 0"
-            [class.md:pl-12]="i % 2 !== 0"
+            [ngClass]="{
+              'timeline-event-content-left': i % 2 === 0,
+              'timeline-event-content-right': i % 2 !== 0
+            }"
           >
             <div class="timeline-event-card">
               <span class="timeline-year">{{ event.year }}</span>
