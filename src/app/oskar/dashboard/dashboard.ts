@@ -28,8 +28,8 @@ export class Dashboard implements OnDestroy {
   count = 20;
   // selectedCharacters: Characters[] = [];
   selectedWords : Word[] = [];
-  currentIndex: number = 0;
-  inputFocused: boolean = false;
+  currentIndex = 0;
+  inputFocused = false;
 
   startTime = Date.now();
   timer = 0;
@@ -48,8 +48,8 @@ export class Dashboard implements OnDestroy {
 
   intervalId: any;
 
-  wordsTyped: number = 0;
-  errorsMade: number = 0;
+  wordsTyped = 0;
+  errorsMade = 0;
 
 
   private start() {
@@ -67,7 +67,7 @@ export class Dashboard implements OnDestroy {
 
   generateWords() {
     this.ngZone.runOutsideAngular(() => {
-      let words = [];
+      const words = [];
       for (let i = 0; i < this.count; i++) {
         if (i > 0) {
           words.push([' ']);
@@ -82,7 +82,7 @@ export class Dashboard implements OnDestroy {
         const letters: Characters[] = wordArray.map((char) => ({
           index: i++,
           char: char,
-          state: 'untyped' as 'untyped'
+          state: 'untyped' as const
         }));
         return { letters };
       });

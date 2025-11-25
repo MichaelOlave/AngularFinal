@@ -1,0 +1,22 @@
+<section id="project-gallery">
+  <div class="projects-container">
+    <div class="projects-header">
+      <span class="projects-label">Applications</span>
+      <h2 class="projects-title">Projects</h2>
+      <p class="projects-subtitle">
+        A showcase of various projects developed using Angular, demonstrating a range of features
+        and functionalities.
+      </p>
+    </div>
+    <div class="project-grid">
+      @for (page of pages; track page.title) {
+      <app-page-preview
+        [component]="page.component"
+        [route]="page.route"
+        [title]="page.title"
+        [subtitle]="page.author"
+      ></app-page-preview>
+      }
+    </div>
+  </div>
+</section>

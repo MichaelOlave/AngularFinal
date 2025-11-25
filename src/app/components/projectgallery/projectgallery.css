@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+
+#project-gallery {
+  @apply min-h-screen py-20;
+  background-color: var(--app-bg-primary);
+}
+
+.projects-container {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+.projects-header {
+  @apply text-center mb-16;
+}
+
+.projects-label {
+  @apply inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4;
+  background-color: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  color: var(--app-accent);
+}
+
+.projects-title {
+  @apply text-5xl font-bold mb-6;
+  background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects-subtitle {
+  @apply text-xl max-w-3xl mx-auto leading-relaxed;
+  color: var(--app-text-secondary);
+}
+
+.project-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}

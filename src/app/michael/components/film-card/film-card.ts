@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-export type Film = {
+export interface Film {
   title: string;
   episode_id: number;
   opening_crawl: string;
@@ -15,7 +15,7 @@ export type Film = {
   created: string;
   edited: string;
   url: string;
-};
+}
 
 @Component({
   selector: 'app-film-card',

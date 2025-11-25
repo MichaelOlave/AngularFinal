@@ -6,6 +6,7 @@ import {
   Type,
   ViewChild,
   ViewContainerRef,
+  OnDestroy,
 } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -15,9 +16,11 @@ import { Router } from '@angular/router';
   templateUrl: './page-preview.html',
   styleUrls: ['./page-preview.css'],
 })
-export class PagePreview implements AfterViewInit {
+export class PagePreview implements AfterViewInit, OnDestroy {
   @Input() component!: Type<any>;
   @Input() route!: string;
+  @Input() title?: string;
+  @Input() subtitle?: string;
 
   @ViewChild('previewHost', { read: ViewContainerRef }) host!: ViewContainerRef;
   @ViewChild('card', { static: true }) cardEl!: ElementRef<HTMLDivElement>;

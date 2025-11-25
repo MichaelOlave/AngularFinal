@@ -58,8 +58,8 @@ export class TicTacToeBoard implements AfterViewInit {
   boardElement: HTMLElement;
   boardMatrix: Tile[][];
   currentPlayer: Player;
-  static playerOneWins: number = 0;
-  static playerTwoWins: number = 0;
+  static playerOneWins = 0;
+  static playerTwoWins = 0;
 
   ngAfterViewInit(): void {
     this.init();

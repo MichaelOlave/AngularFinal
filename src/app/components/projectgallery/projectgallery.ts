@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { PagePreview } from '../components/page-preview/page-preview';
-import { Presentation } from '../presentation/presentation';
-import { Dashboard } from '../oskar/dashboard/dashboard';
-import { Bingo } from '../michael/bingo/bingo';
-import { TicTacToe } from '../michael/tic-tac-toe/tic-tac-toe';
-import { StarwarsInfo } from '../michael/starwars-info/starwars-info';
-import { Mineclick } from '../sean/components/mineclick/mineclick';
+import { PagePreview } from '../page-preview/page-preview';
+import { TicTacToe } from '../../michael/tic-tac-toe/tic-tac-toe';
+import { Bingo } from '../../michael/bingo/bingo';
+import { StarwarsInfo } from '../../michael/starwars-info/starwars-info';
+import { Mineclick } from '../../sean/components/mineclick/mineclick';
+import { Dashboard } from '../../oskar/dashboard/dashboard';
 
 @Component({
   selector: 'app-projectgallery',
@@ -16,34 +15,34 @@ import { Mineclick } from '../sean/components/mineclick/mineclick';
 export class Projectgallery {
   pages = [
     {
-      title: 'Presentation',
-      component: Presentation,
-      route: '/',
-    },
-    {
-      title: 'Tic-tac-toe',
+      title: 'Tic-Tac-Toe',
       component: TicTacToe,
       route: '/michael/tic-tac-toe',
+      author: 'Michael Olave',
     },
     {
       title: 'Bingo',
       component: Bingo,
       route: '/michael/bingo',
+      author: 'Michael Olave',
     },
     {
-      title: 'Starwars-info',
+      title: 'Starwars-Info',
       component: StarwarsInfo,
       route: '/michael/starwars-info',
+      author: 'Michael Olave',
     },
     {
       title: 'Mineclicker',
       component: Mineclick,
       route: '/sean/dashboard',
+      author: 'Sean',
     },
     {
       title: 'Oskar-Dashboard',
       component: Dashboard,
       route: '/oskar/dashboard',
+      author: 'Oskar',
     },
   ];
 }

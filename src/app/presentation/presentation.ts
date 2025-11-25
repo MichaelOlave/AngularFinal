@@ -10,6 +10,7 @@ import { Future } from '../components/future/future';
 import { Footer } from '../components/footer/footer';
 import { CodeTerminal } from '../components/code-terminal/code-terminal';
 import { FileService } from '../utils/pull-file-lines';
+import { Projectgallery } from '../components/projectgallery/projectgallery';
 
 @Component({
   selector: 'app-presentation',
@@ -24,6 +25,7 @@ import { FileService } from '../utils/pull-file-lines';
     Future,
     Footer,
     CodeTerminal,
+    Projectgallery,
   ],
   templateUrl: './presentation.html',
   styleUrl: './presentation.css',
@@ -52,7 +54,7 @@ export class Presentation implements OnInit {
         '})',
         'export class AppComponent {',
         "  title = 'Angular App';",
-        '}'
+        '}',
       ]);
     }
   }
