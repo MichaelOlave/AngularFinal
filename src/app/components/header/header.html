@@ -1,13 +1,12 @@
 <nav class="nav-bar" [class.shadow-xl]="scrolled()">
   <div class="nav-container">
     <div class="logo-wrapper" (click)="scrollTo('hero')">
-      <div class="logo-icon">
-        A
-      </div>
+      <div class="logo-icon">A</div>
       <span class="logo-text">Angular<span class="text-teal-400">DeepDive</span></span>
     </div>
 
-    <!-- Desktop Menu -->
+    <!-- Presentation -->
+    @if (currentRoute === '/') {
     <div class="nav-menu">
       @for (item of navItems; track item.id) {
       <button
@@ -19,10 +18,31 @@
       </button>
       }
     </div>
+    }
 
-    <button class="version-badge">
-      <span>v21.0.0</span>
-      <div class="version-indicator"></div>
-    </button>
+    <!-- Bingo -->
+    @if (currentRoute === '/michael/bingo') {
+    <div>
+      <span class="nav-header">Bingo</span>
+    </div>
+    }
+
+    <!-- Version Badge With dropdown -->
+    <div class="version-dropdown">
+      <button class="version-badge" (click)="toggleVersionDropdown()">
+        <span>v21.0.0</span>
+        <div class="version-indicator"></div>
+      </button>
+      @if (showVersionDropdown()) {
+      <ul class="dropdown-menu">
+        @for (dropdownItem of dropdownItems; track dropdownItem.label) {
+        <li class="dropdown-item">
+          <span [routerLink]="dropdownItem.url">{{ dropdownItem.label }}</span>
+        </li>
+        }
+      </ul>
+
+      }
+    </div>
   </div>
 </nav>

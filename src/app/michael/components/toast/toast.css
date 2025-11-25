@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+
+.toast-container {
+  @apply fixed z-50 bottom-8 right-8 flex flex-col gap-3;
+  pointer-events: none;
+}
+
+.toast {
+  @apply flex items-center justify-between gap-4 p-4 rounded-xl border-2 backdrop-blur-sm;
+  background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
+  border-color: var(--app-accent);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(45, 212, 191, 0.2);
+  color: var(--app-text-primary);
+  min-width: 300px;
+  animation: slideIn 0.3s ease-out;
+  pointer-events: auto;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.success {
+  border-color: #10b981;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.error {
+  border-color: #ef4444;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(239, 68, 68, 0.2);
+}
+
+.info {
+  border-color: var(--app-accent);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(45, 212, 191, 0.2);
+}
+
+.warning {
+  border-color: #f59e0b;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+.win {
+  border-color: var(--app-accent-light);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(94, 234, 212, 0.3);
+}
+
+.lose {
+  border-color: #6366f1;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+.toast button {
+  @apply flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-lg text-xl;
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  color: var(--app-accent);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toast button:hover {
+  background: rgba(45, 212, 191, 0.2);
+  border-color: var(--app-accent);
+}

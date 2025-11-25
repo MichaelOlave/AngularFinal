@@ -25,6 +25,7 @@
 
   /* === ACCENT COLORS === */
   --app-accent: #2dd4bf; /* Primary accent (teal-400) - Change this for different theme! */
+  --app-accent-hover: #14b8a6; /* Hover accent (teal-500) */
   --app-accent-light: #5eead4; /* Lighter accent (teal-300) */
   --app-accent-dark: #14b8a6; /* Darker accent (teal-500) */
 
@@ -32,6 +33,7 @@
   --app-text-primary: #ffffff;
   --app-text-secondary: #cbd5e1; /* slate-300 */
   --app-text-muted: #94a3b8; /* slate-400 */
+  --app-text-tertiary: #333e4d; /* slate-500 */
 
   /*
     EXAMPLE: Purple Theme

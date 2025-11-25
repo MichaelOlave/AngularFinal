@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
@@ -26,5 +26,13 @@ export class BingoSlider {
   showTicks = false;
   step = 2;
   thumbLabel = false;
+
   value = 2;
+
+  @Output() valueChange = new EventEmitter<number>();
+
+  onSliderChange(newValue: number): void {
+    this.value = newValue;
+    this.valueChange.emit(newValue);
+  }
 }

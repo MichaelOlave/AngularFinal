@@ -1,0 +1,19 @@
+<div>
+  <h2>Bingo Board</h2>
+  <table class="game-board">
+    <thead>
+      @for (header of boardConfig().columns; track $index) {
+      <th class="bingo-header-tile">{{ header.column }}</th>
+      }
+    </thead>
+    @for (row of boardState; let rowIdx = $index; track rowIdx) {
+    <tr>
+      @for (cell of row; let colIdx = $index; track colIdx) {
+      <td class="bingo-tile" [class.selected]="cell[1]" (click)="toggleTile(rowIdx, colIdx)">
+        {{ cell[0] ? (cell[0] === 0 ? 'FREE' : cell[0]) : 0 }}
+      </td>
+      }
+    </tr>
+    }
+  </table>
+</div>

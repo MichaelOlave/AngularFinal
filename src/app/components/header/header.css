@@ -43,6 +43,10 @@
   color: var(--app-accent);
 }
 
+.nav-header {
+  @apply px-4 py-1.5 rounded-full text-3xl font-medium text-white;
+}
+
 .version-badge {
   @apply px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2;
   background-color: color-mix(in srgb, var(--app-accent-dark) 10%, transparent);
@@ -57,4 +61,14 @@
 .version-indicator {
   @apply w-2 h-2 rounded-full animate-pulse;
   background-color: var(--app-accent);
+}
+
+.dropdown-menu {
+  @apply absolute mt-2 w-48 max-w-[calc(100vw-2rem)] bg-white/5 backdrop-blur-md rounded-lg shadow-lg border border-white/5 top-full right-0;
+}
+.dropdown-item {
+  @apply px-4 py-2 text-sm text-white hover:bg-white/10 transition-colors duration-200;
+}
+.dropdown-item:hover {
+  @apply bg-white/10;
 }

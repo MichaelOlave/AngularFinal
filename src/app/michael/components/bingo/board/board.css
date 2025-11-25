@@ -1,47 +1,58 @@
 @import 'tailwindcss';
 
 .bingo-tile {
-    @apply m-[5px] border-2 rounded-xl cursor-pointer content-center text-center font-semibold transition-all;
-    background: linear-gradient(135deg, var(--app-bg-card) 0%, #1a2942 100%);
-    color: var(--app-text-primary);
-    border-color: rgba(45, 212, 191, 0.2);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  @apply m-[5px] border-2 rounded-xl cursor-pointer content-center text-center font-semibold transition-all;
+  background: linear-gradient(135deg, var(--app-bg-card) 0%, #1a2942 100%);
+  color: var(--app-text-primary);
+  border-color: rgba(45, 212, 191, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.bingo-tile:not(.bingo-tile-clicked):hover {
-    transform: scale(1.05);
-    background: linear-gradient(135deg, #1a2942 0%, var(--app-bg-card) 100%);
-    border-color: var(--app-accent);
-    box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
+.bingo-tile:not(.selected):hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #1a2942 0%, var(--app-bg-card) 100%);
+  border-color: var(--app-accent);
+  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
 }
 
-.bingo-tile-clicked {
-    background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
-    border-color: var(--app-accent);
-    box-shadow: 0 0 20px rgba(45, 212, 191, 0.5);
-    transform: scale(0.95);
+.selected {
+  background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+  border-color: var(--app-accent);
+  color: var(--app-bg-tertiary);
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.5);
+  transform: scale(0.95);
 }
 
 .bingo-header-tile {
-    @apply m-[5px] border-2 rounded-full content-center text-center font-bold text-lg;
-    background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
-    color: var(--app-bg-primary);
-    border-color: var(--app-accent-dark);
-    box-shadow: 0 4px 15px rgba(45, 212, 191, 0.4);
-}
-
-.tile-column {
-    @apply flex flex-col;
-}
-
-#gameBoard {
-    @apply flex justify-center;
+  @apply m-[5px] border-2 rounded-full content-center text-center font-bold text-lg;
+  background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+  color: var(--app-bg-primary);
+  border-color: var(--app-accent-dark);
+  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.4);
 }
 
 .game-board {
-    @apply border-2 rounded-[30px] m-[5px] p-[20px] flex justify-center;
-    border-color: var(--app-accent);
-    background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(45, 212, 191, 0.1);
+  @apply border-0 rounded-[12px] border-collapse;
+  border-color: var(--app-accent);
+  background: transparent;
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.game-board thead {
+  @apply flex justify-center gap-2;
+}
+
+.game-board tbody {
+  @apply flex flex-col gap-2;
+}
+
+.game-board tr {
+  @apply flex gap-2 justify-center;
+}
+
+.game-board td,
+.game-board th {
+  @apply w-12 h-12 flex items-center justify-center text-xs;
 }

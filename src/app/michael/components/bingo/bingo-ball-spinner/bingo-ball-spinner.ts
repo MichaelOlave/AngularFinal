@@ -1,30 +1,54 @@
-import { Component, output } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
+import { Component, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BingoService } from '../../../utils/bingoService';
 
 @Component({
   selector: 'app-bingo-ball-spinner',
-  imports: [MatButtonModule, CommonModule],
+  imports: [CommonModule],
   templateUrl: './bingo-ball-spinner.html',
   styleUrl: './bingo-ball-spinner.css',
 })
 export class BingoBallSpinner {
-  range = (start: number, end: number): number[] => {
-    const length = end - start + 1;
-    return Array.from({ length }, (_, i) => start + i);
-  };
-  cagedBalls: number[] = this.range(1, 75);
-  validBalls: number[] = [];
-  selectedBall = output<number>();
-  selectedBallDisplay: number | null = null;
+  constructor(private bingo: BingoService) {}
 
-  spin(): void {
-    if (this.cagedBalls.length === 0) return;
-    const ranNum = Math.floor(Math.random() * this.cagedBalls.length);
-    const rolledBall = this.cagedBalls[ranNum];
-    this.validBalls.push(rolledBall);
-    this.cagedBalls.splice(ranNum, 1);
-    this.selectedBall.emit(rolledBall);
-    this.selectedBallDisplay = rolledBall;
+  visible = signal(false);
+  number = signal(0);
+  isSpinning = signal(false);
+  private rollingInterval: any;
+
+  rolled = output<number>();
+
+  open() {
+    this.visible.set(true);
+    this.isSpinning.set(true);
+    this.startRolling();
+
+    setTimeout(() => {
+      const finalBall = this.bingo.spin();
+      clearInterval(this.rollingInterval);
+      this.isSpinning.set(false);
+      this.number.set(finalBall);
+    }, 2000);
+
+    setTimeout(() => {
+      this.rolled.emit(this.number());
+    }, 2500);
+
+    setTimeout(() => {
+      this.close();
+    }, 5000);
+  }
+
+  close() {
+    this.visible.set(false);
+    this.isSpinning.set(false);
+    clearInterval(this.rollingInterval);
+  }
+
+  private startRolling() {
+    clearInterval(this.rollingInterval);
+    this.rollingInterval = setInterval(() => {
+      this.number.set(Math.floor(Math.random() * 75) + 1);
+    }, 60);
   }
 }

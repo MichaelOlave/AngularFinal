@@ -1,16 +1,13 @@
-<div class="spinner-container">
-  <div class="ball-display">
-    @if (selectedBallDisplay) {
-      <span class="ball">{{ selectedBallDisplay }}</span>
-    } @else {
-      <span class="placeholder">?</span>
-    }
-  </div>
-  <button mat-raised-button color="accent" class="spin-button" (click)="spin()">
-    <span class="material-icons">autorenew</span>
-    Spin
-  </button>
-  <div class="caged-balls">
-    <p>Caged Balls: <span class="count-badge">{{ cagedBalls.length }}</span></p>
+@if (visible()) {
+<div class="modal-backdrop" (click)="close()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="close()">×</button>
+
+    <div class="spinning-ball-wrapper">
+      <div class="spinning-ball" [class.spinning]="isSpinning()">
+        <div class="ball-number">{{ number() }}</div>
+      </div>
+    </div>
   </div>
 </div>
+}

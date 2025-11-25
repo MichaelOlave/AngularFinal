@@ -1,27 +1,46 @@
 @import 'tailwindcss';
 
 #playSpace {
-    @apply flex gap-8 p-8;
+  @apply flex gap-8 p-8;
 }
 
 #gameMenu {
-    @apply flex flex-col gap-4 p-6 rounded-lg;
-    background-color: var(--app-bg-secondary);
-    border: 1px solid var(--app-accent);
-    width: 300px;
+  @apply flex flex-col gap-4 p-6 rounded-lg;
+  background-color: var(--app-bg-secondary);
+  border: 1px solid var(--app-accent);
+  width: 300px;
 }
 
 #gameBoardsContainer {
-    @apply flex-grow flex flex-col gap-8;
+  @apply flex-grow flex flex-col gap-8;
 }
 
-#gameBoard, #cpuBoards {
-    @apply p-6 rounded-lg;
-    background-color: var(--app-bg-secondary);
-    border: 1px solid var(--app-accent);
+#playerBoard {
+  @apply p-6 rounded-lg;
+  background-color: var(--app-bg-secondary);
+  border: 1px solid var(--app-accent);
+}
+
+#cpuBoards {
+  @apply grid gap-8;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 h2 {
-    @apply text-2xl font-bold mb-4;
-    color: var(--app-text-primary);
+  @apply text-2xl font-bold mb-4;
+  color: var(--app-text-primary);
+}
+
+button {
+  @apply px-4 py-2 rounded;
+  background-color: var(--app-accent);
+  color: var(--app-text-tertiary);
+  border: none;
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--app-accent-hover);
+  color: var(--app-text-primary);
 }

@@ -1,17 +1,21 @@
-<app-board #boardComp></app-board>
 <section id="playSpace">
-    <section id="gameMenu">
-        <h2>Game Menu</h2>
-        <button mat-raised-button color="accent" (click)="addBoard()">Add Board</button>
-        <app-bingo-slider/>
-    </section>
+  <app-bingo-ball-spinner #bingoSpinner (rolled)="onBallRolled($event)" />
+  <section id="gameMenu">
+    <h2>Game Menu</h2>
+    <app-bingo-slider (valueChange)="numberOfCPUBoards = $event; setCPUBoardCount($event)" />
+    <button (click)="resetPlayerBoard()">Reset Player Board</button>
+    <button (click)="rebuildCPUBoards()">Rebuild CPU Boards</button>
+    <button (click)="onStartGame()">Start Game</button>
+  </section>
 
-    <div id="gameBoardsContainer">
-        <section id="gameBoard">
-            <h2>Your Board</h2>
-        </section>
-        <section id="cpuBoards">
-            <h2>CPU Boards</h2>
-        </section>
-    </div>
+  <div id="gameBoardsContainer">
+    <section id="playerBoard">
+      <app-board #boardComp></app-board>
+    </section>
+    <section id="cpuBoards">
+      @for (board of cpuBoardList; track $index){
+      <app-cpu-board #cpuBoardRefs />
+      }
+    </section>
+  </div>
 </section>

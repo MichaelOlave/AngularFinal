@@ -12,7 +12,7 @@
         [step]="step"
         [discrete]="thumbLabel"
         [showTickMarks]="showTicks">
-      <input matSliderThumb [(ngModel)]="value" #slider>
+      <input matSliderThumb [(ngModel)]="value" (change)="onSliderChange(value)" #slider>
     </mat-slider>
   </mat-card-content>
 </mat-card>
