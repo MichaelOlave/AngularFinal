@@ -1,0 +1,26 @@
+:host {
+    @apply block p-6 rounded-xl;
+    background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+:host:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(45, 212, 191, 0.2);
+}
+
+.cpu-board-container {
+    @apply flex items-center justify-center min-h-[200px];
+}
+
+.cpu-board-text {
+    @apply text-2xl font-bold;
+    background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(45, 212, 191, 0.3);
+}

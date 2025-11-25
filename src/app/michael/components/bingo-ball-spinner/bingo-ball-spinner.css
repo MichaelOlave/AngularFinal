@@ -1,0 +1,61 @@
+.spinner-container {
+    @apply flex flex-col items-center gap-6 p-8 rounded-xl;
+    background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.ball-display {
+    @apply w-32 h-32 rounded-full flex items-center justify-center text-4xl font-bold;
+    background: linear-gradient(135deg, var(--app-bg-card) 0%, #1a2942 100%);
+    border: 3px solid var(--app-accent);
+    box-shadow: 0 0 20px rgba(45, 212, 191, 0.3),
+                inset 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.ball-display:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(45, 212, 191, 0.5),
+                inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ball {
+    color: var(--app-text-primary);
+    background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.placeholder {
+    color: var(--app-text-muted);
+    font-size: 3rem;
+}
+
+.caged-balls {
+    @apply text-base font-medium;
+    color: var(--app-text-secondary);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.spin-button {
+    @apply flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all;
+    background: linear-gradient(135deg, var(--app-accent), var(--app-accent-dark));
+    box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
+}
+
+.spin-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45, 212, 191, 0.5);
+}
+
+.spin-button .material-icons {
+    @apply text-xl;
+}
+
+.count-badge {
+    @apply inline-block px-3 py-1 rounded-full font-bold;
+    background-color: var(--app-accent);
+    color: var(--app-bg-primary);
+}

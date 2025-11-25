@@ -1,7 +1,33 @@
 .film-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px 0;
-  background-color: #f9f9f9;
+  @apply rounded-xl p-6 m-4 transition-all;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.film-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(45, 212, 191, 0.2);
+    border-color: rgba(45, 212, 191, 0.4);
+}
+
+.film-card h2 {
+    @apply text-2xl font-bold mb-4;
+    background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.film-card p {
+    @apply text-base mb-2 leading-relaxed;
+    color: var(--app-text-secondary);
+}
+
+.film-card p:last-child {
+    @apply mb-0 mt-4 p-4 rounded-lg;
+    background-color: rgba(15, 23, 42, 0.5);
+    border-left: 3px solid var(--app-accent);
+    font-style: italic;
 }

@@ -1,9 +1,17 @@
 <app-board #boardComp></app-board>
 <section id="playSpace">
     <section id="gameMenu">
-        <button matButton="elevated" (click)="addBoard()">Add Board</button>
+        <h2>Game Menu</h2>
+        <button mat-raised-button color="accent" (click)="addBoard()">Add Board</button>
         <app-bingo-slider/>
     </section>
-    <section id="gameBoard"></section>
-    <section id="cpuBoards"></section>
+
+    <div id="gameBoardsContainer">
+        <section id="gameBoard">
+            <h2>Your Board</h2>
+        </section>
+        <section id="cpuBoards">
+            <h2>CPU Boards</h2>
+        </section>
+    </div>
 </section>

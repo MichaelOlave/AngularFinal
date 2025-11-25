@@ -1,1 +1,16 @@
-<p>bingo-ball-spinner works!</p>
+<div class="spinner-container">
+  <div class="ball-display">
+    @if (selectedBallDisplay) {
+      <span class="ball">{{ selectedBallDisplay }}</span>
+    } @else {
+      <span class="placeholder">?</span>
+    }
+  </div>
+  <button mat-raised-button color="accent" class="spin-button" (click)="spin()">
+    <span class="material-icons">autorenew</span>
+    Spin
+  </button>
+  <div class="caged-balls">
+    <p>Caged Balls: <span class="count-badge">{{ cagedBalls.length }}</span></p>
+  </div>
+</div>

@@ -1,12 +1,25 @@
-/* section {
-    border: solid 5px;
-} */
-
 #playSpace {
-    display: flex;
-    justify-content: space-between;
+    @apply flex gap-8 p-8;
 }
 
 #gameMenu {
-    width: fit-content;
+    @apply flex flex-col gap-4 p-6 rounded-lg;
+    background-color: var(--app-bg-secondary);
+    border: 1px solid var(--app-accent);
+    width: 300px;
+}
+
+#gameBoardsContainer {
+    @apply flex-grow flex flex-col gap-8;
+}
+
+#gameBoard, #cpuBoards {
+    @apply p-6 rounded-lg;
+    background-color: var(--app-bg-secondary);
+    border: 1px solid var(--app-accent);
+}
+
+h2 {
+    @apply text-2xl font-bold mb-4;
+    color: var(--app-text-primary);
 }

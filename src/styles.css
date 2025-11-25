@@ -50,6 +50,8 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: var(--app-bg-primary);
+  color: var(--app-text-primary);
 }
 
 @layer utilities {

@@ -1,9 +1,10 @@
 import { Component, output } from '@angular/core';
-import { range } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-bingo-ball-spinner',
-  imports: [],
+  imports: [MatButtonModule, CommonModule],
   templateUrl: './bingo-ball-spinner.html',
   styleUrl: './bingo-ball-spinner.css',
 })
@@ -15,12 +16,15 @@ export class BingoBallSpinner {
   cagedBalls: number[] = this.range(1, 75);
   validBalls: number[] = [];
   selectedBall = output<number>();
+  selectedBallDisplay: number | null = null;
 
   spin(): void {
-    const ranNum = Math.floor(Math.random() * (this.cagedBalls.length - 0 + 1) + 0);
+    if (this.cagedBalls.length === 0) return;
+    const ranNum = Math.floor(Math.random() * this.cagedBalls.length);
     const rolledBall = this.cagedBalls[ranNum];
     this.validBalls.push(rolledBall);
     this.cagedBalls.splice(ranNum, 1);
     this.selectedBall.emit(rolledBall);
+    this.selectedBallDisplay = rolledBall;
   }
 }

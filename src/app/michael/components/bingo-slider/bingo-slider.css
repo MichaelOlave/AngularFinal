@@ -1,27 +1,31 @@
-.opponents-margin {
-  margin: 8px;
+.opponents-card {
+    @apply rounded-xl p-6;
+    background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.mat-mdc-slider {
-  max-width: 300px;
-  width: 100%;
-}
-
-.mat-mdc-card + .mat-mdc-card {
-  margin-top: 8px;
-}
-
-.opponents-result-card h3 {
-  margin: 0 8px;
+.opponents-card h3 {
+    @apply text-xl font-bold mb-4;
+    color: var(--app-text-primary);
+    background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .opponents-label-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 10px 0;
-  max-width: 284px;
+  @apply flex justify-between w-full px-2 mb-2;
 }
 
-.opponents-card .opponents-value-label {
-  font-weight: 600;
+.opponents-value-label {
+  @apply text-2xl font-bold px-4 py-2 rounded-lg;
+  color: var(--app-text-primary);
+  background-color: var(--app-accent);
+  color: var(--app-bg-primary);
+  box-shadow: 0 4px 10px rgba(45, 212, 191, 0.3);
+}
+
+.mat-mdc-slider {
+    @apply w-full;
 }

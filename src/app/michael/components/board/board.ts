@@ -1,10 +1,11 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-board',
   imports: [],
   templateUrl: './board.html',
   styleUrl: './board.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class Board {
   fontSize = input(24);
@@ -36,17 +37,10 @@ export class Board {
 
   tile(value: number, row: number, col: number): HTMLElement {
     const gridTile = document.createElement('div');
-    // Tile Styles
+    gridTile.classList.add('bingo-tile');
     gridTile.style.width = `${this.tileSize()}px`;
     gridTile.style.height = `${this.tileSize()}px`;
-    gridTile.style.margin = '5px';
-    gridTile.style.border = 'solid';
-    gridTile.style.borderRadius = '10px';
-    gridTile.style.backgroundColor = 'gray';
-    gridTile.style.cursor = 'pointer';
     gridTile.style.fontSize = `${this.fontSize()}px`;
-    gridTile.style.alignContent = 'center';
-    gridTile.style.textAlign = 'center';
     gridTile.textContent = String(value);
 
     // Setting Free space Text
@@ -54,22 +48,9 @@ export class Board {
       gridTile.textContent = 'FREE';
     }
 
-    // Change color when Hovering over
-    gridTile.onmouseenter = () => {
-      if (gridTile.style.backgroundColor !== 'red') {
-        gridTile.style.backgroundColor = 'lightgray';
-      }
-    };
-
-    gridTile.onmouseleave = () => {
-      if (gridTile.style.backgroundColor !== 'red') {
-        gridTile.style.backgroundColor = 'gray';
-      }
-    };
-
     // Change color when Clicked
     gridTile.onclick = () => {
-      gridTile.style.backgroundColor = gridTile.style.backgroundColor === 'red' ? 'gray' : 'red';
+      gridTile.classList.toggle('bingo-tile-clicked');
       this.boardState[row][col] = !this.boardState[row][col];
       if (this.checkWin()) {
         alert('You Have Wone!!');
@@ -81,16 +62,10 @@ export class Board {
 
   headerTile(value: string): HTMLElement {
     const headerTile = document.createElement('div');
-    // Header Tile Styling
+    headerTile.classList.add('bingo-header-tile');
     headerTile.style.width = `${this.tileSize()}px`;
     headerTile.style.height = `${this.tileSize()}px`;
-    headerTile.style.border = 'solid 2px';
-    headerTile.style.margin = '5px';
-    headerTile.style.borderRadius = '90px';
-    headerTile.style.backgroundColor = 'white';
     headerTile.style.fontSize = `${this.fontSize() + 25}px`;
-    headerTile.style.alignContent = 'center';
-    headerTile.style.textAlign = 'center';
     headerTile.textContent = value;
 
     return headerTile;
@@ -105,8 +80,7 @@ export class Board {
     }
   ): HTMLElement {
     const col = document.createElement('div');
-    col.style.display = 'flex';
-    col.style.flexDirection = 'column';
+    col.classList.add('tile-column');
 
     // Add header tile
     col.appendChild(this.headerTile(boardConfig.column));
@@ -130,18 +104,9 @@ export class Board {
   loadBoard(parentElem: string): void {
     const playSpace = document.getElementById(parentElem);
     if (!playSpace) return;
-    playSpace.style.display = 'flex';
-    playSpace.style.justifyContent = 'center';
 
     const gameBoard = document.createElement('div');
-
-    // Game Board Styling
-    gameBoard.style.border = 'solid';
-    gameBoard.style.borderRadius = '30px';
-    gameBoard.style.margin = '5px';
-    gameBoard.style.padding = '5px';
-    gameBoard.style.display = 'flex';
-    gameBoard.style.justifyContent = 'center';
+    gameBoard.classList.add('game-board');
 
     // Auto fills the state Array with false
     this.boardState = Array.from({ length: this.boardSize() }, () =>

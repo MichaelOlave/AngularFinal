@@ -17,15 +17,15 @@ class Tile {
   }
 
   translateState(): void {
+    this.tileElement.classList.remove('blue', 'red');
     switch (this.playerState) {
       case Player.PLAYERONE:
-        this.tileElement.style.backgroundColor = 'blue';
+        this.tileElement.classList.add('blue');
         break;
       case Player.PLAYERTWO:
-        this.tileElement.style.backgroundColor = 'red';
+        this.tileElement.classList.add('red');
         break;
       default:
-        this.tileElement.style.backgroundColor = 'cornsilk';
         break;
     }
   }
@@ -105,7 +105,7 @@ export class TicTacToeBoard implements AfterViewInit {
   disableBoard(): void {
     this.boardMatrix.forEach((row) =>
       row.forEach((tile) => {
-        tile.tileElement.style.pointerEvents = 'none';
+        tile.tileElement.classList.add('disabled');
       })
     );
   }
@@ -149,7 +149,7 @@ export class TicTacToeBoard implements AfterViewInit {
     this.boardMatrix.forEach((row) =>
       row.forEach((tile) => {
         tile.player = Player.NONE;
-        tile.tileElement.style.pointerEvents = 'auto';
+        tile.tileElement.classList.remove('disabled');
       })
     );
     this.currentPlayer = Player.PLAYERONE;
@@ -206,8 +206,7 @@ export class TicTacToeBoard implements AfterViewInit {
     });
     resetBtn.textContent = 'Reset Board';
     resetBtn.id = 'reset';
-    resetBtn.className =
-      'px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md shadow transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300';
+    resetBtn.className = 'reset-button';
     resetBtn.setAttribute('type', 'button');
 
     const scoreBoard = document.createElement('div');
