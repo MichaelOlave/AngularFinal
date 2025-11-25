@@ -1,4 +1,4 @@
-import { Film } from '../../components/film-card/film-card';
+import { Film } from '../../components/starwars/film-card/film-card';
 
 export const starwarsFilmAPI: { getFilms: () => Promise<Film[]> } = {
   getFilms: async () => {

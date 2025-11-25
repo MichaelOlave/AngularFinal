@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { starwarsFilmAPI } from '../api/starwars/starwars';
-import { Film, FilmCard } from '../components/film-card/film-card';
+import { Film, FilmCard } from '../components/starwars/film-card/film-card';
 
 @Component({
   selector: 'app-starwars-info',

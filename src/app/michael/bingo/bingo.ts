@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { Board } from '../components/board/board';
+import { Board } from '../components/bingo/board/board';
 import { MatButtonModule } from '@angular/material/button';
-import { BingoSlider } from '../components/bingo-slider/bingo-slider';
+import { BingoSlider } from '../components/bingo/bingo-slider/bingo-slider';
 
 @Component({
   selector: 'app-bingo',
