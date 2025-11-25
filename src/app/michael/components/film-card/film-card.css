@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 .film-card {
   @apply rounded-xl p-6 m-4 transition-all;
   border: 1px solid rgba(45, 212, 191, 0.2);

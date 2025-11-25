@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 .bingo-tile {
     @apply m-[5px] border-2 rounded-xl cursor-pointer content-center text-center font-semibold transition-all;
     background: linear-gradient(135deg, var(--app-bg-card) 0%, #1a2942 100%);
