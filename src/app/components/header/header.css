@@ -72,3 +72,30 @@
 .dropdown-item:hover {
   @apply bg-white/10;
 }
+
+/* Mobile Navigation Styles */
+.mobile-nav-item {
+  @apply w-full px-4 py-3 rounded-lg text-left text-sm font-medium transition-all duration-200;
+  color: var(--app-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-nav-item:hover {
+  @apply bg-white/5;
+  color: var(--app-text-primary);
+}
+
+.mobile-nav-item-active {
+  @apply bg-white/10;
+  color: var(--app-accent);
+  border-left: 3px solid var(--app-accent);
+  padding-left: calc(1rem - 3px);
+}
+
+.hamburger-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}

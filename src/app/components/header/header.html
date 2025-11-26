@@ -55,22 +55,75 @@
     </div>
     }
 
-    <!-- Version Badge With dropdown -->
-    <div class="version-dropdown">
-      <button class="version-badge" (click)="toggleVersionDropdown()">
-        <span>v21.0.0</span>
-        <div class="version-indicator"></div>
-      </button>
-      @if (showVersionDropdown()) {
-      <ul class="dropdown-menu">
-        @for (dropdownItem of dropdownItems; track dropdownItem.label) {
-        <li class="dropdown-item">
-          <span [routerLink]="dropdownItem.url">{{ dropdownItem.label }}</span>
-        </li>
+    <!-- Right Side Actions -->
+    <div class="flex items-center gap-4">
+      <!-- Version Badge With dropdown -->
+      <div class="version-dropdown">
+        <button class="version-badge" (click)="toggleVersionDropdown()">
+          <span>v21.0.0</span>
+          <div class="version-indicator"></div>
+        </button>
+        @if (showVersionDropdown()) {
+        <ul class="dropdown-menu">
+          @for (dropdownItem of dropdownItems; track dropdownItem.label) {
+          <li class="dropdown-item">
+            <span [routerLink]="dropdownItem.url">{{ dropdownItem.label }}</span>
+          </li>
+          }
+        </ul>
         }
-      </ul>
+      </div>
 
+      <!-- Hamburger Button (Mobile Only) -->
+      @if (currentRoute === '/') {
+      <button
+        class="hamburger-button lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+        (click)="toggleMobileMenu()"
+        aria-label="Toggle mobile menu"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          [style.color]="'var(--app-text-primary)'"
+        >
+          @if (!showMobileMenu()) {
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          ></path>
+          } @else {
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+          }
+        </svg>
+      </button>
       }
     </div>
   </div>
+
+  <!-- Mobile Menu Overlay & Panel -->
+  @if (showMobileMenu() && currentRoute === '/') {
+  <div class="mobile-menu-open" (click)="closeMobileMenu()"></div>
+  <div class="mobile-menu-container mobile-menu-panel">
+    <div class="flex flex-col gap-2 p-4">
+      @for (item of navItems; track item.id) {
+      <button
+        (click)="scrollTo(item.id)"
+        class="mobile-nav-item"
+        [ngClass]="activeSection() === item.id ? 'mobile-nav-item-active' : ''"
+      >
+        {{ item.label }}
+      </button>
+      }
+    </div>
+  </div>
+  }
 </nav>

@@ -48,7 +48,18 @@
     <section id="playerBoard">
       <app-board #boardComp (winDetected)="outcomePopup.show('Bingo!', 'You win!')"></app-board>
     </section>
-    <section id="cpuBoards">
+
+    <!-- Mobile CPU Boards Toggle -->
+    <button (click)="toggleMobileCPUBoards()" class="mobile-cpu-toggle lg:hidden w-full py-2 px-4 rounded">
+      @if (showMobileCPUBoards()) {
+        Hide CPU Boards
+      } @else {
+        Show CPU Boards
+      }
+    </button>
+
+    <!-- CPU Boards -->
+    <section id="cpuBoards" [class.hidden]="!showMobileCPUBoards()" class="lg:block">
       @for (board of cpuBoardList; track $index){
       <app-cpu-board
         #cpuBoardRefs

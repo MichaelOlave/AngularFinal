@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 :host {
-  @apply block p-4 rounded-xl overflow-hidden;
+  @apply block p-2 sm:p-4 rounded-xl overflow-hidden;
   background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
   border: 1px solid rgba(45, 212, 191, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -14,11 +14,11 @@
 }
 
 .cpu-board-container {
-  @apply flex flex-col gap-4;
+  @apply flex flex-col gap-2 sm:gap-4;
 }
 
 .cpu-board-container h2 {
-  @apply text-lg font-bold text-center;
+  @apply text-base sm:text-lg font-bold text-center;
   background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
   -webkit-background-clip: text;
   background-clip: text;
@@ -27,7 +27,7 @@
 }
 
 .board-wrapper {
-  @apply relative p-3 rounded-lg;
+  @apply relative p-2 sm:p-3 rounded-lg;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(45, 212, 191, 0.1);
   cursor: pointer;

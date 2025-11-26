@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 .comparisons-section {
-  @apply py-24 px-6 border-t border-white/5;
+  @apply py-12 sm:py-16 lg:py-24 px-4 sm:px-6 border-t border-white/5;
   background-color: var(--app-bg-secondary);
 }
 
@@ -10,17 +10,18 @@
 }
 
 .comparisons-title {
-  @apply text-3xl font-bold mb-10 text-center;
+  @apply text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 lg:mb-10 text-center;
   color: var(--app-text-primary);
 }
 
 .comparison-table-wrapper {
-  @apply overflow-hidden rounded-2xl border border-white/10 shadow-2xl;
+  @apply overflow-x-auto overflow-hidden rounded-2xl border border-white/10 shadow-2xl;
 }
 
 .comparison-table {
-  @apply w-full text-left text-sm;
+  @apply w-full text-left text-xs sm:text-sm;
   color: var(--app-text-muted);
+  min-width: 600px;
 }
 
 .comparison-table-header {
@@ -30,11 +31,11 @@
 }
 
 .comparison-table-header-cell {
-  @apply p-6;
+  @apply p-3 sm:p-6;
 }
 
 .comparison-table-header-angular {
-  @apply p-6;
+  @apply p-3 sm:p-6;
   color: var(--app-accent);
 }
 
@@ -48,21 +49,21 @@
 }
 
 .comparison-table-metric {
-  @apply p-6 font-medium;
+  @apply p-3 sm:p-6 font-medium;
   color: var(--app-text-primary);
 }
 
 .comparison-table-angular {
-  @apply p-6;
+  @apply p-3 sm:p-6;
   color: var(--app-accent-light);
 }
 
 .comparison-table-others {
-  @apply p-6;
+  @apply p-3 sm:p-6;
 }
 
 .pros-cons-grid {
-  @apply mt-12 grid md:grid-cols-2 gap-8;
+  @apply mt-8 lg:mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8;
 }
 
 .pros-card {

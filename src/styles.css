@@ -76,6 +76,46 @@ body {
   .animate-zoom-in {
     animation: zoomInCard 0.35s ease-out forwards;
   }
+
+  /* Mobile Responsive Utilities */
+  .container-mobile {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .flex-mobile-stack {
+    @apply flex flex-col lg:flex-row;
+  }
+
+  .gap-mobile {
+    @apply gap-4 lg:gap-8;
+  }
+
+  .text-mobile-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  .text-mobile-subtitle {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+
+  .mobile-only {
+    @apply block lg:hidden;
+  }
+
+  .desktop-only {
+    @apply hidden lg:block;
+  }
+
+  /* Mobile Menu Styling */
+  .mobile-menu-open {
+    @apply fixed inset-0 z-40 bg-black/50 backdrop-blur-sm;
+  }
+
+  .mobile-menu-panel {
+    @apply fixed top-16 right-0 w-64 h-[calc(100vh-4rem)] z-50 shadow-2xl;
+    background-color: var(--app-bg-card);
+    border-left: 1px solid rgba(45, 212, 191, 0.2);
+  }
 }
 
 @keyframes fadeInUp {

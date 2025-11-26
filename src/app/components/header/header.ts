@@ -14,6 +14,7 @@ export class Header {
   scrolled = signal(false);
   activeSection = signal('hero');
   showVersionDropdown = signal(false);
+  showMobileMenu = signal(false);
   router = inject(Router);
 
   currentRoute = '';
@@ -51,8 +52,27 @@ export class Header {
     this.scrolled.set(window.scrollY > 50);
   }
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const mobileMenu = target.closest('.mobile-menu-container');
+    const hamburgerButton = target.closest('.hamburger-button');
+
+    if (!mobileMenu && !hamburgerButton && this.showMobileMenu()) {
+      this.closeMobileMenu();
+    }
+  }
+
   toggleVersionDropdown() {
     this.showVersionDropdown.update((value) => !value);
+  }
+
+  toggleMobileMenu() {
+    this.showMobileMenu.update((value) => !value);
+  }
+
+  closeMobileMenu() {
+    this.showMobileMenu.set(false);
   }
 
   // Smooth Scroll
@@ -61,6 +81,7 @@ export class Header {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       this.activeSection.set(id);
+      this.closeMobileMenu();
     }
   }
 }

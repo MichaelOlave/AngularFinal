@@ -1,29 +1,28 @@
 @import 'tailwindcss';
 
 #playSpace {
-  @apply flex gap-8 p-8;
+  @apply flex flex-col lg:flex-row gap-4 lg:gap-8 p-4 lg:p-8;
 }
 
 #gameMenu {
-  @apply flex flex-col gap-4 p-6 rounded-lg;
+  @apply flex flex-col gap-4 p-4 lg:p-6 rounded-lg lg:w-72;
   background-color: var(--app-bg-secondary);
   border: 1px solid var(--app-accent);
-  width: 300px;
 }
 
 #gameBoardsContainer {
-  @apply flex-grow flex flex-col gap-8;
+  @apply flex-grow flex flex-col gap-4 lg:gap-8;
 }
 
 #playerBoard {
-  @apply p-6 rounded-lg;
+  @apply p-4 lg:p-6 rounded-lg;
   background-color: var(--app-bg-secondary);
   border: 1px solid var(--app-accent);
 }
 
 #cpuBoards {
-  @apply grid gap-8;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  @apply grid gap-4 lg:gap-8;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 h2 {
@@ -55,4 +54,17 @@ button:disabled {
 .disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.mobile-cpu-toggle {
+  background-color: var(--app-accent);
+  color: var(--app-text-tertiary);
+  border: none;
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+  cursor: pointer;
+}
+
+.mobile-cpu-toggle:hover {
+  background-color: var(--app-accent-hover);
+  color: var(--app-text-primary);
 }

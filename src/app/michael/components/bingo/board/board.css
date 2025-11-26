@@ -1,11 +1,20 @@
 @import 'tailwindcss';
 
 .bingo-tile {
-  @apply m-[5px] border-2 rounded-xl cursor-pointer content-center text-center font-semibold transition-all;
+  @apply m-1 sm:m-[5px] border-2 rounded-xl cursor-pointer content-center text-center font-semibold transition-all;
+  width: 2.5rem;
+  height: 2.5rem;
   background: linear-gradient(135deg, var(--app-bg-card) 0%, #1a2942 100%);
   color: var(--app-text-primary);
   border-color: rgba(45, 212, 191, 0.2);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 640px) {
+  .bingo-tile {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .bingo-tile:not(.selected):hover {
@@ -24,11 +33,22 @@
 }
 
 .bingo-header-tile {
-  @apply m-[5px] border-2 rounded-full content-center text-center font-bold text-lg;
+  @apply m-1 sm:m-[5px] border-2 rounded-full content-center text-center font-bold;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.875rem;
   background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
   color: var(--app-bg-primary);
   border-color: var(--app-accent-dark);
   box-shadow: 0 4px 15px rgba(45, 212, 191, 0.4);
+}
+
+@media (min-width: 640px) {
+  .bingo-header-tile {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.125rem;
+  }
 }
 
 .game-board {
@@ -49,10 +69,10 @@
 }
 
 .game-board tr {
-  @apply flex gap-2 justify-center;
+  @apply flex gap-1 sm:gap-2 justify-center;
 }
 
 .game-board td,
 .game-board th {
-  @apply w-12 h-12 flex items-center justify-center text-xs;
+  @apply flex items-center justify-center text-xs;
 }

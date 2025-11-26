@@ -1,16 +1,16 @@
 @import 'tailwindcss';
 
 .dashboard-wrapper {
-  @apply p-8 min-h-screen;
+  @apply p-4 lg:p-8 min-h-screen;
   width: 100%;
 }
 
 .dashboard-header {
-  @apply text-center mb-12;
+  @apply text-center mb-8 lg:mb-12;
 }
 
 .dashboard-header h1 {
-  @apply text-5xl font-bold mb-2;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-2;
   background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
   -webkit-background-clip: text;
   background-clip: text;
@@ -19,13 +19,13 @@
 }
 
 .dashboard-header p {
-  @apply text-lg;
+  @apply text-base sm:text-lg;
   color: var(--app-text-secondary);
 }
 
 .projects-grid {
-  @apply grid gap-8 max-w-6xl mx-auto;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  @apply grid gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .project-card {
@@ -44,42 +44,95 @@
 ::ng-deep .project-card mat-card-header {
   @apply bg-transparent border-b;
   border-bottom-color: rgba(45, 212, 191, 0.2);
-  padding: 1.5rem !important;
+  padding: 1rem !important;
+}
+
+@media (min-width: 640px) {
+  ::ng-deep .project-card mat-card-header {
+    padding: 1.5rem !important;
+  }
 }
 
 ::ng-deep .project-card mat-card-title {
-  @apply text-2xl font-bold;
   color: var(--app-accent);
   text-shadow: 0 0 10px rgba(45, 212, 191, 0.2);
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+@media (min-width: 640px) {
+  ::ng-deep .project-card mat-card-title {
+    font-size: 1.5rem;
+  }
 }
 
 ::ng-deep .project-card mat-card-subtitle {
-  @apply text-sm font-medium mt-1;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
   color: var(--app-text-secondary);
 }
 
+@media (min-width: 640px) {
+  ::ng-deep .project-card mat-card-subtitle {
+    font-size: 0.875rem;
+  }
+}
+
 ::ng-deep .project-card mat-card-content {
-  padding: 1.5rem !important;
+  padding: 1rem !important;
+}
+
+@media (min-width: 640px) {
+  ::ng-deep .project-card mat-card-content {
+    padding: 1.5rem !important;
+  }
 }
 
 ::ng-deep .project-card mat-card-content p {
-  @apply text-sm leading-relaxed;
+  font-size: 0.75rem;
+  line-height: 1.5;
   color: var(--app-text-secondary);
   margin: 0;
 }
 
+@media (min-width: 640px) {
+  ::ng-deep .project-card mat-card-content p {
+    font-size: 0.875rem;
+  }
+}
+
 ::ng-deep .project-card mat-card-actions {
-  @apply bg-transparent border-t p-4;
+  @apply bg-transparent border-t;
   border-top-color: rgba(45, 212, 191, 0.2);
+  padding: 0.75rem !important;
+}
+
+@media (min-width: 640px) {
+  ::ng-deep .project-card mat-card-actions {
+    padding: 1rem !important;
+  }
 }
 
 ::ng-deep .project-card button {
-  @apply w-full px-6 py-3 rounded-lg font-semibold transition-all;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all;
+  font-size: 0.75rem;
   background: linear-gradient(135deg, var(--app-accent), var(--app-accent-dark));
   color: var(--app-bg-primary);
   border: none;
   box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
   cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  ::ng-deep .project-card button {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+  }
 }
 
 ::ng-deep .project-card button:hover {

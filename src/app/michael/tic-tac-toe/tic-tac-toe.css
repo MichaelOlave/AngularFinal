@@ -1,20 +1,15 @@
 @import 'tailwindcss';
 
 .tic-tac-toe-layout {
-  @apply flex items-center justify-center gap-8 p-8 min-h-screen;
+  @apply flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 p-4 lg:p-8 min-h-screen;
   width: 100%;
 }
 
-section {
-  @apply flex flex-col;
-}
-
 .game-menu {
-  @apply flex flex-col items-center gap-6 rounded-lg p-8;
+  @apply flex flex-col items-center gap-4 lg:gap-6 rounded-lg p-4 lg:p-8 w-full lg:w-80;
   background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
   border: 2px solid var(--app-accent);
   box-shadow: 0 0 30px rgba(45, 212, 191, 0.2);
-  width: 300px;
   flex-shrink: 0;
   height: fit-content;
 }
@@ -27,7 +22,7 @@ section {
 }
 
 .menu-header h1 {
-  @apply text-3xl font-bold;
+  @apply text-2xl lg:text-3xl font-bold;
   color: var(--app-accent);
   text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
 }
@@ -37,20 +32,26 @@ section {
 }
 
 .current-player {
-  @apply flex items-center justify-center gap-3;
-  padding: 1rem 1.5rem;
+  @apply flex items-center justify-center gap-3 w-full;
+  padding: 0.75rem 1rem;
   border-radius: 12px;
   background: rgba(45, 212, 191, 0.1);
   border: 1px solid var(--app-accent);
 }
 
+@media (min-width: 1024px) {
+  .current-player {
+    padding: 1rem 1.5rem;
+  }
+}
+
 .current-player .label {
-  @apply text-lg font-semibold;
+  @apply text-base lg:text-lg font-semibold;
   color: var(--app-text-primary);
 }
 
 .current-player .player-symbol {
-  @apply text-3xl font-bold;
+  @apply text-2xl lg:text-3xl font-bold;
   background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
   -webkit-background-clip: text;
   background-clip: text;
@@ -58,22 +59,22 @@ section {
 }
 
 .player-symbols {
-  @apply flex gap-8 w-full justify-center;
+  @apply flex gap-4 lg:gap-8 w-full justify-center;
 }
 
 .player-item {
-  @apply flex items-center gap-2 px-4 py-2 rounded-lg;
+  @apply flex flex-col lg:flex-col items-center gap-1 px-3 py-2 lg:px-4 lg:py-2 rounded-lg;
   background: rgba(45, 212, 191, 0.05);
   border: 1px solid rgba(45, 212, 191, 0.3);
 }
 
 .player-item .label {
-  @apply text-sm font-medium;
+  @apply text-xs lg:text-sm font-medium;
   color: var(--app-text-secondary);
 }
 
 .player-item .symbol {
-  @apply text-xl font-bold;
+  @apply text-lg lg:text-xl font-bold;
   color: var(--app-text-primary);
 }
 
@@ -83,12 +84,11 @@ section {
 
 .btn-primary,
 .btn-secondary {
-  @apply flex-1 px-6 py-3 rounded-lg font-semibold transition-all;
+  @apply flex-1 px-3 lg:px-6 py-2 lg:py-3 rounded-lg font-semibold transition-all text-xs lg:text-sm;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 0.9rem;
 }
 
 .btn-primary {
@@ -116,10 +116,9 @@ section {
 }
 
 .tic-tac-toe-container {
-  @apply flex flex-col items-center justify-center;
-  flex: 1;
+  @apply flex flex-col items-center justify-center w-full lg:flex-1;
   max-width: 600px;
-  min-width: 300px;
+  min-width: 280px;
 }
 
 .game-board {
@@ -142,12 +141,18 @@ section {
   @apply flex items-center justify-center transition-all flex-1;
   background: linear-gradient(135deg, var(--app-bg-card) 0%, #1a2942 100%);
   cursor: pointer;
-  border: 2px solid rgba(45, 212, 191, 0.2);
+  border: 1px solid rgba(45, 212, 191, 0.2);
   color: var(--app-text-primary);
   box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
-  font-size: clamp(2rem, 8vw, 5rem);
+  font-size: clamp(1.5rem, 6vw, 5rem);
   font-weight: bold;
   aspect-ratio: 1;
+}
+
+@media (min-width: 640px) {
+  .cell {
+    border-width: 2px;
+  }
 }
 
 .cell:hover:not(.selected) {
@@ -164,17 +169,16 @@ section {
 }
 
 .score-board {
-  @apply rounded-lg p-8 flex flex-col gap-4;
+  @apply rounded-lg p-4 lg:p-8 flex flex-col gap-4 w-full lg:w-80;
   background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
   border: 2px solid var(--app-accent);
   box-shadow: 0 0 30px rgba(45, 212, 191, 0.2);
-  width: 300px;
   flex-shrink: 0;
   height: fit-content;
 }
 
 .score-board h2 {
-  @apply text-2xl font-bold text-center;
+  @apply text-xl lg:text-2xl font-bold text-center;
   color: var(--app-accent);
   text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
   border-bottom: 2px solid var(--app-accent);
@@ -186,18 +190,18 @@ section {
 }
 
 .score-item {
-  @apply p-4 rounded-lg text-center;
+  @apply p-3 lg:p-4 rounded-lg text-center;
   background: rgba(45, 212, 191, 0.05);
   border: 1px solid rgba(45, 212, 191, 0.3);
 }
 
 .score-item .label {
-  @apply text-sm font-medium;
+  @apply text-xs lg:text-sm font-medium;
   color: var(--app-text-secondary);
 }
 
 .score-item .score {
-  @apply text-4xl font-bold my-2;
+  @apply text-3xl lg:text-4xl font-bold my-2;
   background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
   -webkit-background-clip: text;
   background-clip: text;
@@ -205,6 +209,6 @@ section {
 }
 
 .score-item .symbol {
-  @apply text-lg font-semibold;
+  @apply text-base lg:text-lg font-semibold;
   color: var(--app-text-primary);
 }

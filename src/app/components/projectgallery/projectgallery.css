@@ -6,11 +6,11 @@
 }
 
 .projects-container {
-  @apply max-w-7xl mx-auto px-6;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
 .projects-header {
-  @apply text-center mb-16;
+  @apply text-center mb-12 lg:mb-16;
 }
 
 .projects-label {
@@ -21,7 +21,7 @@
 }
 
 .projects-title {
-  @apply text-5xl font-bold mb-6;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-6;
   background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
   -webkit-background-clip: text;
   background-clip: text;
@@ -29,10 +29,10 @@
 }
 
 .projects-subtitle {
-  @apply text-xl max-w-3xl mx-auto leading-relaxed;
+  @apply text-base sm:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed;
   color: var(--app-text-secondary);
 }
 
 .project-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8;
 }

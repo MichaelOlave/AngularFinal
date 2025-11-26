@@ -9,7 +9,7 @@
 }
 
 .hero-grid {
-  @apply max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center;
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center;
 }
 
 .hero-content {
@@ -20,7 +20,7 @@
 }
 
 .hero-title {
-  @apply text-5xl sm:text-7xl font-bold tracking-tight text-white mb-6 leading-tight;
+  @apply text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight;
 }
 
 .hero-gradient-text {
@@ -28,15 +28,15 @@
 }
 
 .hero-subtitle {
-  @apply text-xl text-slate-400 mb-8 leading-relaxed max-w-xl;
+  @apply text-base sm:text-lg lg:text-xl text-slate-400 mb-8 leading-relaxed max-w-xl;
 }
 
 .install-command-wrapper {
-  @apply flex flex-wrap gap-4;
+  @apply flex flex-col sm:flex-row flex-wrap gap-4;
 }
 
 .install-command {
-  @apply flex items-center gap-4 px-6 text-sm text-slate-500 font-mono;
+  @apply flex items-center gap-4 px-4 sm:px-6 text-xs sm:text-sm text-slate-500 font-mono overflow-x-auto;
 }
 
 .copy-button {

@@ -27,6 +27,7 @@ export class Bingo implements OnInit {
   boardComp?: Board;
   @ViewChildren('cpuBoardRefs') cpuBoards?: QueryList<CpuBoard>;
   @ViewChild('bingoSpinner') bingoSpinner!: BingoBallSpinner;
+  showMobileCPUBoards = signal(false);
   cpuBoardNames = [
     'Alice',
     'Bob',
@@ -162,5 +163,9 @@ export class Bingo implements OnInit {
     queueMicrotask(() => {
       this.cpuBoards?.forEach((board) => board.checkForNumber(rolledNumber));
     });
+  }
+
+  toggleMobileCPUBoards(): void {
+    this.showMobileCPUBoards.update(val => !val);
   }
 }
