@@ -25,12 +25,14 @@
 
 .timeline-wrapper {
   @apply relative;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
 }
 
 .timeline-line {
-  @apply absolute h-full w-px;
-  left: -1.5rem;
+  @apply absolute w-px;
+  left: -0.75rem;
+  top: 0;
+  bottom: 0;
   background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--app-accent-dark) 50%, transparent), transparent);
 }
 
