@@ -1,4 +1,4 @@
-import { Component, input, ViewEncapsulation } from '@angular/core';
+import { Component, input, output, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BoardConfig } from '../../../utils/types';
 import { ToastService } from '../../../utils/toastService';
@@ -24,6 +24,7 @@ export class Board {
       { column: 'O', range: [61, 75], freeSpace: false },
     ],
   });
+  winDetected = output<void>();
 
   constructor(protected toastService: ToastService) {}
 
@@ -73,6 +74,7 @@ export class Board {
     this.boardState[row][col][1] = !this.boardState[row][col][1];
     if (this.checkWin()) {
       this.toastService.showToast('Bingo!', 'win', 10000);
+      this.winDetected.emit();
       this.togglingDisabled = true;
       Board.gameRunning = false;
     }

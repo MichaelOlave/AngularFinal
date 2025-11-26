@@ -1,20 +1,60 @@
 <section id="playSpace">
+  <app-game-outcome-popup #outcomePopup />
   <app-bingo-ball-spinner #bingoSpinner (rolled)="onBallRolled($event)" />
   <section id="gameMenu">
     <h2>Game Menu</h2>
-    <app-bingo-slider (valueChange)="numberOfCPUBoards = $event; setCPUBoardCount($event)" />
-    <button (click)="resetPlayerBoard()">Reset Player Board</button>
-    <button (click)="rebuildCPUBoards()">Rebuild CPU Boards</button>
-    <button (click)="onStartGame()">Start Game</button>
+    <app-bingo-slider
+      [class.disabled]="Board.gameRunning"
+      id="number-of-cpus"
+      title="Number of Opponents"
+      [value]="numberOfCPUBoards"
+      (valueChange)="numberOfCPUBoards = $event; setCPUBoardCount($event)"
+    />
+    <app-bingo-slider
+      [class.disabled]="Board.gameRunning"
+      id="interval-between-rolls"
+      title="Interval Between Rolls (seconds)"
+      [value]="intervalBetweenRolls()"
+      (valueChange)="intervalBetweenRolls.set($event)"
+      [min]="1"
+      [max]="60"
+      [step]="1"
+    />
+    <button
+      [class.disabled]="resetBtn?.hasAttribute('disabled')"
+      (click)="resetPlayerBoard()"
+      id="resetPlayerBoard"
+    >
+      Reset Player Board
+    </button>
+    <button
+      [class.disabled]="rebuildBtn?.hasAttribute('disabled')"
+      (click)="rebuildCPUBoards()"
+      id="rebuildCPUBoards"
+    >
+      Rebuild CPU Boards
+    </button>
+    <button
+      [class.disabled]="startBtn?.hasAttribute('disabled')"
+      (click)="onStartGame()"
+      id="startGame"
+    >
+      Start Game
+    </button>
+    <button (click)="endGame()" id="resetGame">Reset Game</button>
   </section>
 
   <div id="gameBoardsContainer">
     <section id="playerBoard">
-      <app-board #boardComp></app-board>
+      <app-board #boardComp (winDetected)="outcomePopup.show('Bingo!', 'You win!')"></app-board>
     </section>
     <section id="cpuBoards">
       @for (board of cpuBoardList; track $index){
-      <app-cpu-board #cpuBoardRefs />
+      <app-cpu-board
+        #cpuBoardRefs
+        [name]="cpuBoardNames[board]"
+        (cpuWin)="outcomePopup.show($event + ' CPU Bingo!', `${$event} has won the game!`)"
+      />
       }
     </section>
   </div>

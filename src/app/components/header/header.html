@@ -1,6 +1,6 @@
 <nav class="nav-bar" [class.shadow-xl]="scrolled()">
   <div class="nav-container">
-    <div class="logo-wrapper" (click)="scrollTo('hero')">
+    <div class="logo-wrapper" (click)="[router.navigate(['/'])]">
       <div class="logo-icon">A</div>
       <span class="logo-text">Angular<span class="text-teal-400">DeepDive</span></span>
     </div>
@@ -24,6 +24,34 @@
     @if (currentRoute === '/michael/bingo') {
     <div>
       <span class="nav-header">Bingo</span>
+    </div>
+    }
+
+    <!-- Tic Tac Toe -->
+    @if (currentRoute === '/michael/tic-tac-toe') {
+    <div>
+      <span class="nav-header">Tic Tac Toe</span>
+    </div>
+    }
+
+    <!-- Starwars Info -->
+    @if (currentRoute === '/michael/starwars-info') {
+    <div>
+      <span class="nav-header">Starwars Info</span>
+    </div>
+    }
+
+    <!-- Mineclick -->
+    @if (currentRoute === '/sean/dashboard') {
+    <div>
+      <span class="nav-header">Mineclick</span>
+    </div>
+    }
+
+    <!-- Speed Type -->
+    @if (currentRoute === '/oskar/dashboard') {
+    <div>
+      <span class="nav-header">Speed Type</span>
     </div>
     }
 

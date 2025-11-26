@@ -44,3 +44,15 @@ button:hover {
   background-color: var(--app-accent-hover);
   color: var(--app-text-primary);
 }
+
+button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+  background-color: var(--app-accent);
+  color: var(--app-text-tertiary);
+  box-shadow: none;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

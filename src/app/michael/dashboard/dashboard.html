@@ -1,19 +1,23 @@
-<h1>My Projects</h1>
-<mat-card appearance="outlined">
-  <mat-card-header>
-    <mat-card-title>Bingo</mat-card-title>
-    <mat-card-subtitle>Player vs CPU</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-actions>
-    <button matButton="elevated" routerLink="/michael/bingo">Launch</button>
-  </mat-card-actions>
-</mat-card>
-<mat-card appearance="outlined">
-  <mat-card-header>
-    <mat-card-title>Tic Tac Toe</mat-card-title>
-    <mat-card-subtitle>Player vs Player</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-actions>
-    <button matButton="elevated" routerLink="/michael/tic-tac-toe">Launch</button>
-  </mat-card-actions>
-</mat-card>
+<div class="dashboard-wrapper">
+  <div class="dashboard-header">
+    <h1>My Projects</h1>
+    <p>Select a game to play</p>
+  </div>
+
+  <div class="projects-grid">
+    @for (game of games; track game.title) {
+    <mat-card class="project-card">
+      <mat-card-header>
+        <mat-card-title>{{ game.title }}</mat-card-title>
+        <mat-card-subtitle>{{ game.subtitle }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ game.description }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button matButton="elevated" [routerLink]="game.route">Launch Game</button>
+      </mat-card-actions>
+    </mat-card>
+    }
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, output, signal } from '@angular/core';
 import { Board } from '../board/board';
 import { ToastService } from '../../../utils/toastService';
 
@@ -9,8 +9,16 @@ import { ToastService } from '../../../utils/toastService';
   styleUrl: './cpu-board.css',
 })
 export class CpuBoard extends Board {
+  @Input() name = 'CPU';
+  cpuWin = output<string>();
+  isRevealed = signal(false);
+
   constructor(toastService: ToastService) {
     super(toastService);
+  }
+
+  toggleReveal(): void {
+    this.isRevealed.update(val => !val);
   }
 
   checkForNumber(number: number): void {
@@ -23,6 +31,7 @@ export class CpuBoard extends Board {
     });
     if (this.checkWin()) {
       this.toastService.showToast('CPU Bingo! The CPU has won the game!', 'lose');
+      this.cpuWin.emit(this.name);
       Board.gameRunning = false;
     }
   }

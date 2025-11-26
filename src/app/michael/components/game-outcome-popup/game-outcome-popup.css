@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+
+.modal-backdrop {
+  @apply fixed inset-0 z-50 flex items-center justify-center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-container {
+  @apply relative;
+  animation: zoomIn 0.3s ease-out;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  @apply absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-lg;
+  background: rgba(45, 212, 191, 0.1);
+  border: 2px solid var(--app-accent);
+  color: var(--app-accent);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.close-btn:hover {
+  background: rgba(45, 212, 191, 0.2);
+  transform: rotate(90deg);
+}
+
+.outcome-content {
+  @apply rounded-lg p-8 flex flex-col items-center gap-6;
+  background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
+  border: 2px solid var(--app-accent);
+  box-shadow: 0 0 40px rgba(45, 212, 191, 0.3);
+  min-width: 350px;
+  max-width: 90vw;
+}
+
+.outcome-title {
+  @apply text-4xl font-bold text-center;
+  background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+}
+
+.outcome-message {
+  @apply text-lg text-center;
+  color: var(--app-text-secondary);
+}
+
+.outcome-actions {
+  @apply flex gap-4 w-full;
+  margin-top: 1rem;
+}
+
+.action-btn {
+  @apply flex-1 px-6 py-3 rounded-lg font-semibold transition-all;
+  background: linear-gradient(135deg, var(--app-accent), var(--app-accent-dark));
+  color: var(--app-bg-primary);
+  border: none;
+  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 212, 191, 0.5);
+}

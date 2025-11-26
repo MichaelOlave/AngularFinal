@@ -1,18 +1,19 @@
 <mat-card class="opponents-card">
   <mat-card-content>
-    <h3>Number of Opponents</h3>
+    <h3>{{ title }}</h3>
 
     <div class="opponents-label-container">
-      <span class="opponents-value-label">{{slider.value}}</span>
+      <span class="opponents-value-label">{{ slider.value }}</span>
     </div>
     <mat-slider
-        [disabled]="disabled"
-        [max]="max"
-        [min]="min"
-        [step]="step"
-        [discrete]="thumbLabel"
-        [showTickMarks]="showTicks">
-      <input matSliderThumb [(ngModel)]="value" (change)="onSliderChange(value)" #slider>
+      [disabled]="disabled"
+      [max]="max"
+      [min]="min"
+      [step]="step"
+      [discrete]="thumbLabel"
+      [showTickMarks]="showTicks"
+    >
+      <input matSliderThumb [(ngModel)]="value" (change)="onSliderChange(value)" #slider />
     </mat-slider>
   </mat-card-content>
 </mat-card>

@@ -1,0 +1,210 @@
+@import 'tailwindcss';
+
+.tic-tac-toe-layout {
+  @apply flex items-center justify-center gap-8 p-8 min-h-screen;
+  width: 100%;
+}
+
+section {
+  @apply flex flex-col;
+}
+
+.game-menu {
+  @apply flex flex-col items-center gap-6 rounded-lg p-8;
+  background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
+  border: 2px solid var(--app-accent);
+  box-shadow: 0 0 30px rgba(45, 212, 191, 0.2);
+  width: 300px;
+  flex-shrink: 0;
+  height: fit-content;
+}
+
+.menu-header {
+  @apply text-center;
+  border-bottom: 2px solid var(--app-accent);
+  padding-bottom: 1.5rem;
+  width: 100%;
+}
+
+.menu-header h1 {
+  @apply text-3xl font-bold;
+  color: var(--app-accent);
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+}
+
+.player-info {
+  @apply w-full text-center;
+}
+
+.current-player {
+  @apply flex items-center justify-center gap-3;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid var(--app-accent);
+}
+
+.current-player .label {
+  @apply text-lg font-semibold;
+  color: var(--app-text-primary);
+}
+
+.current-player .player-symbol {
+  @apply text-3xl font-bold;
+  background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.player-symbols {
+  @apply flex gap-8 w-full justify-center;
+}
+
+.player-item {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg;
+  background: rgba(45, 212, 191, 0.05);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+}
+
+.player-item .label {
+  @apply text-sm font-medium;
+  color: var(--app-text-secondary);
+}
+
+.player-item .symbol {
+  @apply text-xl font-bold;
+  color: var(--app-text-primary);
+}
+
+.menu-buttons {
+  @apply flex gap-4 w-full;
+}
+
+.btn-primary,
+.btn-secondary {
+  @apply flex-1 px-6 py-3 rounded-lg font-semibold transition-all;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--app-accent), var(--app-accent-dark));
+  color: var(--app-bg-primary);
+  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 212, 191, 0.5);
+}
+
+.btn-secondary {
+  background: rgba(45, 212, 191, 0.1);
+  border: 2px solid var(--app-accent);
+  color: var(--app-accent);
+  box-shadow: inset 0 0 20px rgba(45, 212, 191, 0.1);
+}
+
+.btn-secondary:hover {
+  background: rgba(45, 212, 191, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(45, 212, 191, 0.3), inset 0 0 20px rgba(45, 212, 191, 0.1);
+}
+
+.tic-tac-toe-container {
+  @apply flex flex-col items-center justify-center;
+  flex: 1;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.game-board {
+  @apply border-collapse;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 3px solid var(--app-accent);
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: 0 0 30px rgba(45, 212, 191, 0.3);
+  overflow: hidden;
+}
+
+.game-board tr {
+  @apply flex;
+  height: 33.33%;
+}
+
+.cell {
+  @apply flex items-center justify-center transition-all flex-1;
+  background: linear-gradient(135deg, var(--app-bg-card) 0%, #1a2942 100%);
+  cursor: pointer;
+  border: 2px solid rgba(45, 212, 191, 0.2);
+  color: var(--app-text-primary);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-size: clamp(2rem, 8vw, 5rem);
+  font-weight: bold;
+  aspect-ratio: 1;
+}
+
+.cell:hover:not(.selected) {
+  border-color: var(--app-accent);
+  background: linear-gradient(135deg, #1a2942 0%, var(--app-bg-card) 100%);
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.3), inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cell.selected {
+  background: linear-gradient(135deg, var(--app-accent) 0%, var(--app-accent-dark) 100%);
+  border-color: var(--app-accent-light);
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.5), inset 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: var(--app-bg-primary);
+}
+
+.score-board {
+  @apply rounded-lg p-8 flex flex-col gap-4;
+  background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
+  border: 2px solid var(--app-accent);
+  box-shadow: 0 0 30px rgba(45, 212, 191, 0.2);
+  width: 300px;
+  flex-shrink: 0;
+  height: fit-content;
+}
+
+.score-board h2 {
+  @apply text-2xl font-bold text-center;
+  color: var(--app-accent);
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+  border-bottom: 2px solid var(--app-accent);
+  padding-bottom: 1rem;
+}
+
+.score-items {
+  @apply flex flex-col gap-4;
+}
+
+.score-item {
+  @apply p-4 rounded-lg text-center;
+  background: rgba(45, 212, 191, 0.05);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+}
+
+.score-item .label {
+  @apply text-sm font-medium;
+  color: var(--app-text-secondary);
+}
+
+.score-item .score {
+  @apply text-4xl font-bold my-2;
+  background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.score-item .symbol {
+  @apply text-lg font-semibold;
+  color: var(--app-text-primary);
+}

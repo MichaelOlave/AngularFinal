@@ -1,3 +1,65 @@
-<section>
-  <app-tic-tac-toe-board></app-tic-tac-toe-board>
-</section>
+<div class="tic-tac-toe-layout">
+  <app-game-outcome-popup #outcomePopup />
+  <section class="game-menu">
+    <div class="menu-header">
+      <h1>Tic Tac Toe</h1>
+    </div>
+
+    <div class="player-info">
+      <div class="current-player">
+        <span class="label">Current Player:</span>
+        <span class="player-symbol">{{ playerSymbols[currentPlayer] }}</span>
+      </div>
+    </div>
+
+    <div class="player-symbols">
+      <div class="player-item">
+        <span class="label">Player 1:</span>
+        <span class="symbol">{{ playerSymbols[Player.PLAYERONE] }}</span>
+      </div>
+      <div class="player-item">
+        <span class="label">Player 2:</span>
+        <span class="symbol">{{ playerSymbols[Player.PLAYERTWO] }}</span>
+      </div>
+    </div>
+
+    <div class="menu-buttons">
+      <button class="btn-primary" (click)="resetGame()">Reset Game</button>
+      <button class="btn-secondary" (click)="swapPlayerSymbols()">Change Symbols</button>
+    </div>
+  </section>
+
+  <section class="tic-tac-toe-container">
+    <table class="game-board">
+      @for (row of boardState; let rowIdx = $index; track rowIdx) {
+      <tr>
+        @for (cell of row; let colIdx = $index; track colIdx) {
+        <td
+          (click)="onCellPlayed([rowIdx, colIdx], currentPlayer)"
+          [class.selected]="cell[0]"
+          class="cell"
+        >
+          {{ playerSymbols[cell[1]] }}
+        </td>
+        }
+      </tr>
+      }
+    </table>
+  </section>
+
+  <section class="score-board">
+    <h2>Score Board</h2>
+    <div class="score-items">
+      <div class="score-item">
+        <p class="label">Player 1</p>
+        <p class="score">{{ playerScores[Player.PLAYERONE] }}</p>
+        <p class="symbol">({{ playerSymbols[Player.PLAYERONE] }})</p>
+      </div>
+      <div class="score-item">
+        <p class="label">Player 2</p>
+        <p class="score">{{ playerScores[Player.PLAYERTWO] }}</p>
+        <p class="symbol">({{ playerSymbols[Player.PLAYERTWO] }})</p>
+      </div>
+    </div>
+  </section>
+</div>

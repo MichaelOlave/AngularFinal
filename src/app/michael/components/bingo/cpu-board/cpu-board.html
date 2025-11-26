@@ -1,19 +1,26 @@
-<div class="cpu-board-container">
-  <h2>CPU Board</h2>
-  <table class="game-board">
-    <thead>
-      @for (header of boardConfig().columns; track $index) {
-      <th class="bingo-header-tile">{{ header.column }}</th>
+<div class="cpu-board-container" id="{{ name }}">
+  <h2>{{ name }}</h2>
+  <div class="board-wrapper" [class.revealed]="isRevealed()" (click)="toggleReveal()">
+    <table class="game-board">
+      <thead>
+        @for (header of boardConfig().columns; track $index) {
+        <th class="bingo-header-tile">{{ header.column }}</th>
+        }
+      </thead>
+      @for (row of boardState; let rowIdx = $index; track rowIdx) {
+      <tr>
+        @for (cell of row; let colIdx = $index; track colIdx) {
+        <td class="bingo-tile" [class.selected]="cell[1]">
+          {{ cell[0] ? (cell[0] === 0 ? 0 : cell[0]) : 'FREE' }}
+        </td>
+        }
+      </tr>
       }
-    </thead>
-    @for (row of boardState; let rowIdx = $index; track rowIdx) {
-    <tr>
-      @for (cell of row; let colIdx = $index; track colIdx) {
-      <td class="bingo-tile" [class.selected]="cell[1]">
-        {{ cell[0] ? (cell[0] === 0 ? 'FREE' : cell[0]) : 0 }}
-      </td>
-      }
-    </tr>
+    </table>
+    @if (!isRevealed()) {
+    <div class="frost-overlay">
+      <span class="frost-text">Click to reveal</span>
+    </div>
     }
-  </table>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
@@ -20,14 +20,14 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './bingo-slider.css',
 })
 export class BingoSlider {
-  disabled = false;
-  max = 50;
-  min = 2;
+  @Input() disabled = false;
+  @Input() max = 50;
+  @Input() min = 2;
   showTicks = false;
-  step = 2;
+  @Input() step = 2;
   thumbLabel = false;
-
-  value = 2;
+  @Input() title = 'Setting Title';
+  @Input() value = 10;
 
   @Output() valueChange = new EventEmitter<number>();
 

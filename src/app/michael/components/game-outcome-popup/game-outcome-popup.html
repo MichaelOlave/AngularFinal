@@ -1,0 +1,15 @@
+@if (visible()) {
+<div class="modal-backdrop" (click)="hide()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="hide()">×</button>
+
+    <div class="outcome-content">
+      <h2 class="outcome-title">{{ outcomeTitle() }}</h2>
+      <p class="outcome-message">{{ outcomeMessage() }}</p>
+      <div class="outcome-actions">
+        <button class="action-btn" (click)="onActionClick()">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+}
