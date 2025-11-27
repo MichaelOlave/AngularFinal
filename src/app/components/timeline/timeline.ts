@@ -19,7 +19,6 @@ export class Timeline implements OnInit {
 
   ngOnInit() {
     loadJSON<TimelineEvent[]>('timeline.json').then((data) => {
-      console.log('Timeline data loaded:', data);
       this.timeline.set(data);
     });
   }

@@ -26,7 +26,4 @@ export interface Film {
 })
 export class FilmCard {
   @Input() film!: Film;
-  constructor() {
-    console.log(this.film);
-  }
 }

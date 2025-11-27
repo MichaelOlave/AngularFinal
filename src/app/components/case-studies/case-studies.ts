@@ -21,7 +21,6 @@ export class CaseStudies implements OnInit {
 
   ngOnInit() {
     loadJSON<CaseStudy[]>('case-studies.json').then((data) => {
-      console.log('Case Studies data loaded:', data);
       this.caseStudies.set(data);
     });
   }

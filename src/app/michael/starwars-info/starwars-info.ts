@@ -16,7 +16,6 @@ export class StarwarsInfo implements OnInit {
 
   async ngOnInit() {
     this.films = await starwarsFilmAPI.getFilms();
-    console.log(this.films);
     this.cdRef.detectChanges();
   }
 }

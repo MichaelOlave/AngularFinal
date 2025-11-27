@@ -41,7 +41,6 @@ export class Presentation implements OnInit {
   async ngOnInit() {
     try {
       this.codeLines.set(await this.fileService.getFileLines('app.ts'));
-      console.log(this.codeLines());
     } catch (error) {
       console.error('Failed to load code preview:', error);
       // Fallback to sample code

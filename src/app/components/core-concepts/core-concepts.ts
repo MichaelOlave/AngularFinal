@@ -18,7 +18,6 @@ export class CoreConcepts implements OnInit {
   concepts = signal<Feature[]>([]);
   ngOnInit(): void {
     loadJSON<Feature[]>('core-concepts.json').then((data) => {
-      console.log('Core Concepts data loaded:', data);
       this.concepts.set(data);
     });
   }
