@@ -1,0 +1,44 @@
+@if (isOpen) {
+  <section class="code-viewer-backdrop" (click)="close()">
+    <section class="code-viewer-wrapper" (click)="$event.stopPropagation()">
+      <div class="code-viewer-bg-gradient"></div>
+      <section class="code-viewer-container">
+        <div class="code-viewer-header">
+          <div class="code-window-dots">
+            <button
+              class="code-dot-red close-button"
+              (click)="close()"
+              title="Close"
+            ></button>
+            <div class="code-dot-yellow"></div>
+            <div class="code-dot-green"></div>
+          </div>
+          <div class="code-tab">
+            @for (fileName of fileNames; track fileName) {
+              <button
+                class="code-tab-item"
+                [class.active]="selectedFileName === fileName"
+                (click)="selectFile(fileName)"
+              >
+                {{ fileName }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <section class="code-content">
+          <div class="code-bg-logo"></div>
+          <div class="code-scroll-area">
+            @if (isLoading) {
+              <div class="loading">Loading files...</div>
+            } @else if (selectedFileContent) {
+              <pre class="code-lines"><code>{{ selectedFileContent }}</code></pre>
+            } @else {
+              <div class="no-file-selected">No files found for: {{ componentPath }}</div>
+            }
+          </div>
+        </section>
+      </section>
+    </section>
+  </section>
+}
