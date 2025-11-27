@@ -10,38 +10,46 @@ letters: Characters[];
 
 <div>
   <h1 class="text-3xl">Speed Type</h1>
-  <h3 class="text-xl">Words Typed: {{wordsTyped}}, Errors: {{errorsMade}}</h3>
+  <h3 class="text-xl">Words Typed: {{ wordsTyped }}, Errors: {{ errorsMade }}</h3>
   <h3 class="text-xl">Time: {{ timer$ | async }}</h3>
 
   <div id="game-outer">
-    <input #gameInput (keydown)="handleKeyPress($event)" (focus)="onFocus()" (blur)="onBlur()" id="game-input" />
+    <input
+      #gameInput
+      (keydown)="handleKeyPress($event)"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      id="game-input"
+    />
 
     <!-- Overlay shown when input is not focused to prompt the user -->
     @if (!inputFocused) {
-      <div class="input-overlay" (click)="gameInput.focus()">
-        Click here or press any key to start typing
-      </div>
+    <div class="input-overlay" (click)="gameInput.focus()">
+      Click here or press any key to start typing
+    </div>
     }
 
     <div id="game-inner">
-
       @for (word of selectedWords; track word; let wordIndex = $index) {
+      <span class="word">
+        @for (charObj of word.letters; track charObj; let charIndex = $index) {
         <span
-          class="word"
-          >
-          @for (charObj of word.letters; track charObj; let charIndex = $index) {
-            <span
-              [class.correct]="charObj.state === 'correct'"
-              [class.incorrect]="charObj.state === 'incorrect'"
-              [class.untyped]="charObj.state === 'untyped'"
-              [class.current]="charObj.index === currentIndex"
-              class="char"
-              >{{ charObj.char }}</span
-              >
-            }
-            <span> </span>
-          </span>
+          [class.correct]="charObj.state === 'correct'"
+          [class.incorrect]="charObj.state === 'incorrect'"
+          [class.untyped]="charObj.state === 'untyped'"
+          [class.current]="charObj.index === currentIndex"
+          class="char"
+          >{{ charObj.char }}</span
+        >
         }
-      </div>
+        <span> </span>
+      </span>
+      }
     </div>
   </div>
+</div>
+<app-footer
+  mainText="Created by Oskar Laing"
+  [componentPath]="'oskar/dashboard'"
+  [showShoutOut]="false"
+/>

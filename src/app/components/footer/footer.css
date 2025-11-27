@@ -1,19 +1,113 @@
 @import 'tailwindcss';
 
 .footer {
-  @apply bg-[#050911] py-12 px-6 border-t border-white/5 text-center;
+  @apply border-t border-white/5;
+  background: linear-gradient(to top, rgba(5, 9, 17, 0.95), rgba(5, 9, 17, 0.85));
+  backdrop-filter: blur(8px);
+  padding: 48px 24px;
+  margin-top: auto;
 }
 
 .footer-container {
   @apply max-w-7xl mx-auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.footer-copy-right {
+  @apply flex flex-col items-start gap-4;
 }
 
 .footer-logo {
-  @apply w-12 h-12 rounded-lg flex items-center justify-center text-3xl font-bold mx-auto mb-6;
-  background: linear-gradient(to bottom right, #0d9488, #1d4ed8);
-  color: var(--app-text-primary);
+  @apply w-14 h-14 rounded-lg flex items-center justify-center;
+  background: linear-gradient(135deg, #0d9488, #1d4ed8);
+  color: white;
+  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3);
+  transition: all 0.3s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px rgba(13, 148, 136, 0.5);
+}
+
+.footer-logo-img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
 }
 
 .footer-text {
-  @apply text-slate-500 text-sm;
+  @apply text-slate-400 text-sm;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.footer-shout-out {
+  @apply flex flex-col items-center gap-2;
+  text-align: center;
+}
+
+.footer-shout-out .footer-text {
+  @apply text-slate-400 text-sm;
+}
+
+.footer-link {
+  @apply text-cyan-400 hover:text-cyan-300 transition-colors font-medium;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  border-color: rgba(34, 211, 238, 0.3);
+  padding-bottom: 1px;
+}
+
+.footer-link:hover {
+  border-color: rgba(34, 211, 238, 0.8);
+}
+
+#viewSourceBtn {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  background: linear-gradient(135deg, #0d9488, #0f766e);
+  color: white;
+  border: 1px solid rgba(13, 148, 136, 0.3);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.2);
+}
+
+#viewSourceBtn:hover {
+  background: linear-gradient(135deg, #14b8a6, #0d9488);
+  box-shadow: 0 6px 25px rgba(13, 148, 136, 0.4);
+  transform: translateY(-2px);
+}
+
+#viewSourceBtn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 32px 16px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .footer-copy-right {
+    @apply items-center;
+  }
+
+  .footer-shout-out {
+    @apply items-center;
+  }
 }

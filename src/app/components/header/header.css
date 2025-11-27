@@ -2,7 +2,11 @@
 
 .nav-bar {
   @apply fixed top-0 inset-x-0 z-50 border-b border-white/5 backdrop-blur-md transition-all duration-300;
-  background-color: color-mix(in srgb, var(--app-bg-primary) 90%, transparent);
+  background: linear-gradient(to bottom, rgba(5, 9, 17, 0.95), rgba(5, 9, 17, 0.85));
+}
+
+.nav-bar.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
@@ -10,19 +14,33 @@
 }
 
 .logo-wrapper {
-  @apply flex items-center gap-2 cursor-pointer;
+  @apply flex items-center gap-2 cursor-pointer transition-transform duration-300 hover:scale-105;
 }
 
 .logo-icon {
-  @apply w-8 h-8 rounded-lg flex items-center justify-center font-bold shadow-lg;
-  background: linear-gradient(to bottom right, var(--app-accent-dark), #3b82f6);
-  color: var(--app-text-primary);
-  box-shadow: 0 10px 15px -3px color-mix(in srgb, var(--app-accent-dark) 20%, transparent);
+  @apply w-10 h-10 rounded-lg flex items-center justify-center font-bold;
+  background: linear-gradient(135deg, #0d9488, #1d4ed8);
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+  transition: all 0.3s ease;
+}
+
+.logo-icon:hover {
+  box-shadow: 0 6px 25px rgba(13, 148, 136, 0.5);
+}
+
+.logo-img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
 }
 
 .logo-text {
-  @apply font-semibold tracking-tight hidden sm:block;
+  @apply font-semibold tracking-tight hidden sm:block text-lg;
   color: var(--app-text-primary);
+  background: linear-gradient(135deg, var(--app-text-primary), #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .nav-menu {

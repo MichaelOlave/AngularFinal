@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { Player } from '../utils/types';
 import { GameOutcomePopup } from '../components/game-outcome-popup/game-outcome-popup';
+import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-tic-tac-toe',
-  imports: [GameOutcomePopup],
+  imports: [GameOutcomePopup, Footer],
   templateUrl: './tic-tac-toe.html',
   styleUrl: './tic-tac-toe.css',
 })

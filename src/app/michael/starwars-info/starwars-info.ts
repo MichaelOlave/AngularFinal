@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { starwarsFilmAPI } from '../api/starwars/starwars';
 import { Film, FilmCard } from '../components/starwars/film-card/film-card';
+import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-starwars-info',
-  imports: [FilmCard],
+  imports: [FilmCard, Footer],
   standalone: true,
   templateUrl: './starwars-info.html',
   styleUrls: ['./starwars-info.css'],

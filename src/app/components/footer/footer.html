@@ -1,12 +1,12 @@
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-copy-right">
-      <div class="footer-logo">A</div>
-      <p class="footer-text">
-        Created by Michael Olave, Sean Hammond, Oskar Laing, Sophia Yeskey. <br />&copy; 2024. All
-        rights reserved.
-      </p>
+      <div class="footer-logo">
+        <img src="/AngularLogo.svg" alt="Angular Logo" class="footer-logo-img" />
+      </div>
+      <p class="footer-text">{{ mainText }} <br />&copy; 2025. All rights reserved.</p>
     </div>
+    @if (showShoutOut) {
     <div class="footer-shout-out">
       <p class="footer-text">Shout out to</p>
       <p class="footer-text">
@@ -20,6 +20,11 @@
           >Gemini for writing commit messages</a
         >
       </p>
+    </div>
+    }
+    <div>
+      <button (click)="codeViewer.isOpen = true" id="viewSourceBtn">View Page Source Code</button>
+      <app-code-viewer #codeViewer [componentPath]="componentPath" />
     </div>
   </div>
 </footer>

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Footer } from '../../../components/footer/footer';
 
 // Each resource you can mine
 interface Block {
@@ -32,7 +33,7 @@ interface Upgrade {
 
 @Component({
   selector: 'app-mineclick',
-  imports: [CommonModule],
+  imports: [CommonModule, Footer],
   templateUrl: './mineclick.html',
   styleUrl: './mineclick.css',
 })
@@ -54,20 +55,151 @@ export class Mineclick implements OnInit, OnDestroy {
   constructor(private cdr: ChangeDetectorRef) {}
 
   blocksData: Block[] = [
-    { id: 'dirt', name: 'Dirt Block', icon: '/sean/media/blocks/dirt.png', clickValue: 1, quantity: 1, blockCost: 10, blockCostMultiplier: 1.15, toolIcon: '/sean/media/managers/shovel.png', managerPurchased: false, managerEnabled: false, managerCost: 100, clickInterval: 500, progress: 0, unlocked: true, animationIds: [] },
-    { id: 'wood', name: 'Oak Log', icon: '/sean/media/blocks/wood.png', clickValue: 7, quantity: 0, blockCost: 100, blockCostMultiplier: 1.15, toolIcon: '/sean/media/managers/axe.png', managerPurchased: false, managerEnabled: false, managerCost: 500, clickInterval: 1500, progress: 0, unlocked: false, animationIds: [] },
-    { id: 'stone', name: 'Stone', icon: '/sean/media/blocks/stone.png', clickValue: 30, quantity: 0, blockCost: 1000, blockCostMultiplier: 1.15, toolIcon: '/sean/media/managers/pickaxe.png', managerPurchased: false, managerEnabled: false, managerCost: 2000, clickInterval: 3000, progress: 0, unlocked: false, animationIds: [] },
-    { id: 'gold', name: 'Gold Ore', icon: '/sean/media/blocks/gold.png', clickValue: 150, quantity: 0, blockCost: 10000, blockCostMultiplier: 1.15, toolIcon: '/sean/media/managers/pickaxe.png', managerPurchased: false, managerEnabled: false, managerCost: 5000, clickInterval: 9000, progress: 0, unlocked: false, animationIds: [] },
-    { id: 'iron', name: 'Iron Ore', icon: '/sean/media/blocks/iron.png', clickValue: 900, quantity: 0, blockCost: 100000, blockCostMultiplier: 1.15, toolIcon: '/sean/media/managers/pickaxe.png', managerPurchased: false, managerEnabled: false, managerCost: 20000, clickInterval: 20000, progress: 0, unlocked: false, animationIds: [] },
-    { id: 'diamond', name: 'Diamond Ore', icon: '/sean/media/blocks/diamond.png', clickValue: 6000, quantity: 0, blockCost: 1000000, blockCostMultiplier: 1.15, toolIcon: '/sean/media/managers/pickaxe.png', managerPurchased: false, managerEnabled: false, managerCost: 100000, clickInterval: 50000, progress: 0, unlocked: false, animationIds: [] },
+    {
+      id: 'dirt',
+      name: 'Dirt Block',
+      icon: '/sean/media/blocks/dirt.png',
+      clickValue: 1,
+      quantity: 1,
+      blockCost: 10,
+      blockCostMultiplier: 1.15,
+      toolIcon: '/sean/media/managers/shovel.png',
+      managerPurchased: false,
+      managerEnabled: false,
+      managerCost: 100,
+      clickInterval: 500,
+      progress: 0,
+      unlocked: true,
+      animationIds: [],
+    },
+    {
+      id: 'wood',
+      name: 'Oak Log',
+      icon: '/sean/media/blocks/wood.png',
+      clickValue: 7,
+      quantity: 0,
+      blockCost: 100,
+      blockCostMultiplier: 1.15,
+      toolIcon: '/sean/media/managers/axe.png',
+      managerPurchased: false,
+      managerEnabled: false,
+      managerCost: 500,
+      clickInterval: 1500,
+      progress: 0,
+      unlocked: false,
+      animationIds: [],
+    },
+    {
+      id: 'stone',
+      name: 'Stone',
+      icon: '/sean/media/blocks/stone.png',
+      clickValue: 30,
+      quantity: 0,
+      blockCost: 1000,
+      blockCostMultiplier: 1.15,
+      toolIcon: '/sean/media/managers/pickaxe.png',
+      managerPurchased: false,
+      managerEnabled: false,
+      managerCost: 2000,
+      clickInterval: 3000,
+      progress: 0,
+      unlocked: false,
+      animationIds: [],
+    },
+    {
+      id: 'gold',
+      name: 'Gold Ore',
+      icon: '/sean/media/blocks/gold.png',
+      clickValue: 150,
+      quantity: 0,
+      blockCost: 10000,
+      blockCostMultiplier: 1.15,
+      toolIcon: '/sean/media/managers/pickaxe.png',
+      managerPurchased: false,
+      managerEnabled: false,
+      managerCost: 5000,
+      clickInterval: 9000,
+      progress: 0,
+      unlocked: false,
+      animationIds: [],
+    },
+    {
+      id: 'iron',
+      name: 'Iron Ore',
+      icon: '/sean/media/blocks/iron.png',
+      clickValue: 900,
+      quantity: 0,
+      blockCost: 100000,
+      blockCostMultiplier: 1.15,
+      toolIcon: '/sean/media/managers/pickaxe.png',
+      managerPurchased: false,
+      managerEnabled: false,
+      managerCost: 20000,
+      clickInterval: 20000,
+      progress: 0,
+      unlocked: false,
+      animationIds: [],
+    },
+    {
+      id: 'diamond',
+      name: 'Diamond Ore',
+      icon: '/sean/media/blocks/diamond.png',
+      clickValue: 6000,
+      quantity: 0,
+      blockCost: 1000000,
+      blockCostMultiplier: 1.15,
+      toolIcon: '/sean/media/managers/pickaxe.png',
+      managerPurchased: false,
+      managerEnabled: false,
+      managerCost: 100000,
+      clickInterval: 50000,
+      progress: 0,
+      unlocked: false,
+      animationIds: [],
+    },
   ];
 
   upgrades: Upgrade[] = [
-    { id: 'speed1', name: 'Efficiency I', description: 'All managers work 40% faster', cost: 5000, effect: () => this.speedMultiplier *= 1.4, purchased: false },
-    { id: 'profit1', name: 'Fortune I', description: 'All blocks produce 2.5x more', cost: 10000, effect: () => this.profitMultiplier *= 2.5, purchased: false },
-    { id: 'profit2', name: 'Fortune II', description: 'All blocks produce 4x more', cost: 50000, effect: () => this.profitMultiplier *= 4, purchased: false },
-    { id: 'looting', name: 'Looting', description: 'Clicking blocks gives 8x profit', cost: 20000, effect: () => this.clickProfitMultiplier *= 8, purchased: false },
-    { id: 'speed2', name: 'Efficiency II', description: 'All managers work 80% faster', cost: 100000, effect: () => this.speedMultiplier *= 1.8, purchased: false },
+    {
+      id: 'speed1',
+      name: 'Efficiency I',
+      description: 'All managers work 40% faster',
+      cost: 5000,
+      effect: () => (this.speedMultiplier *= 1.4),
+      purchased: false,
+    },
+    {
+      id: 'profit1',
+      name: 'Fortune I',
+      description: 'All blocks produce 2.5x more',
+      cost: 10000,
+      effect: () => (this.profitMultiplier *= 2.5),
+      purchased: false,
+    },
+    {
+      id: 'profit2',
+      name: 'Fortune II',
+      description: 'All blocks produce 4x more',
+      cost: 50000,
+      effect: () => (this.profitMultiplier *= 4),
+      purchased: false,
+    },
+    {
+      id: 'looting',
+      name: 'Looting',
+      description: 'Clicking blocks gives 8x profit',
+      cost: 20000,
+      effect: () => (this.clickProfitMultiplier *= 8),
+      purchased: false,
+    },
+    {
+      id: 'speed2',
+      name: 'Efficiency II',
+      description: 'All managers work 80% faster',
+      cost: 100000,
+      effect: () => (this.speedMultiplier *= 1.8),
+      purchased: false,
+    },
   ];
 
   ngOnInit(): void {
@@ -90,7 +222,7 @@ export class Mineclick implements OnInit, OnDestroy {
         const effectiveInterval = block.clickInterval / this.speedMultiplier;
         const oldProgress = block.progress;
         block.progress = Math.min(100, block.progress + (50 / effectiveInterval) * 100);
-        
+
         if (oldProgress < 100 && block.progress >= 100) {
           totalProduction += block.clickValue * block.quantity * this.profitMultiplier;
           block.progress = 0;
@@ -139,7 +271,8 @@ export class Mineclick implements OnInit, OnDestroy {
 
   clickBlock(block: Block): void {
     if (block.unlocked && block.quantity > 0) {
-      this.dirtBlocks += block.clickValue * block.quantity * this.profitMultiplier * this.clickProfitMultiplier;
+      this.dirtBlocks +=
+        block.clickValue * block.quantity * this.profitMultiplier * this.clickProfitMultiplier;
       this.checkUnlocks();
     }
   }
@@ -150,7 +283,9 @@ export class Mineclick implements OnInit, OnDestroy {
 
   getMaxAffordable(block: Block): number {
     if (!block.unlocked) return 0;
-    let max = 0, cost = this.getBlockCost(block), totalCost = 0;
+    let max = 0,
+      cost = this.getBlockCost(block),
+      totalCost = 0;
     while (totalCost + cost <= this.dirtBlocks) {
       totalCost += cost;
       max++;
@@ -163,14 +298,16 @@ export class Mineclick implements OnInit, OnDestroy {
     if (!block.unlocked) return;
     const max = this.getMaxAffordable(block);
     if (max === 0) return;
-    
-    let totalCost = 0, cost = this.getBlockCost(block), quantity = 0;
+
+    let totalCost = 0,
+      cost = this.getBlockCost(block),
+      quantity = 0;
     for (let i = 0; i < max && totalCost + cost <= this.dirtBlocks; i++) {
       totalCost += cost;
       quantity++;
       cost = Math.floor(cost * block.blockCostMultiplier * (1 - this.costReduction));
     }
-    
+
     if (totalCost <= this.dirtBlocks && quantity > 0) {
       this.dirtBlocks -= totalCost;
       block.quantity += quantity;
@@ -223,6 +360,6 @@ export class Mineclick implements OnInit, OnDestroy {
   }
 
   updateAvailableUpgrades(): void {
-    this.availableUpgrades = this.upgrades.filter(upgrade => !upgrade.purchased);
+    this.availableUpgrades = this.upgrades.filter((upgrade) => !upgrade.purchased);
   }
 }

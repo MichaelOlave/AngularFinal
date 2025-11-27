@@ -19,78 +19,134 @@
   <main class="game-main">
     <div class="resource-column">
       @for (block of [blocksData[0], blocksData[2], blocksData[4]]; track block) {
-        <div class="resource-panel" [class.locked]="!block.unlocked">
-          <div class="resource-icon-wrapper">
-            <div class="resource-icon" (click)="clickBlock(block)" [class.clickable]="block.unlocked && block.quantity > 0">
-              <img [src]="block.icon" [alt]="block.name" />
-            </div>
+      <div class="resource-panel" [class.locked]="!block.unlocked">
+        <div class="resource-icon-wrapper">
+          <div
+            class="resource-icon"
+            (click)="clickBlock(block)"
+            [class.clickable]="block.unlocked && block.quantity > 0"
+          >
+            <img [src]="block.icon" [alt]="block.name" />
           </div>
-          <div class="resource-info">
-            <div class="resource-name">{{ block.quantity }}x {{ block.name }}</div>
-            <div class="production-rate">
-              <div class="rate-icon"></div>
-              <span>{{ getProductionRate(block) | number : '1.0-0' }}/sec</span>
-            </div>
-          </div>
-          <div class="resource-tool-wrapper">
-            @for (animId of block.animationIds; track animId) {
-              <div class="block-rise" [style.background-image]="'url(' + block.icon + ')'"></div>
-            }
-            <div class="resource-tool" [class.manager-purchased]="block.managerPurchased" [class.manager-enabled]="block.managerEnabled" [class.locked]="!block.unlocked" [class.affordable]="!block.managerPurchased && block.unlocked && canAfford(block.managerCost)" [class.unaffordable]="!block.managerPurchased && block.unlocked && !canAfford(block.managerCost)" (click)="block.unlocked && (block.managerPurchased ? toggleManager(block) : buyManager(block))">
-              <img [src]="block.toolIcon" [alt]="block.name + ' manager'" />
-            </div>
-          </div>
-          <button class="buy-button" [class.disabled]="!block.unlocked || getMaxAffordable(block) === 0" [disabled]="!block.unlocked || getMaxAffordable(block) === 0" (click)="buyBlocks(block)">
-            {{ getBuyButtonText(block) }}
-          </button>
         </div>
+        <div class="resource-info">
+          <div class="resource-name">{{ block.quantity }}x {{ block.name }}</div>
+          <div class="production-rate">
+            <div class="rate-icon"></div>
+            <span>{{ getProductionRate(block) | number : '1.0-0' }}/sec</span>
+          </div>
+        </div>
+        <div class="resource-tool-wrapper">
+          @for (animId of block.animationIds; track animId) {
+          <div class="block-rise" [style.background-image]="'url(' + block.icon + ')'"></div>
+          }
+          <div
+            class="resource-tool"
+            [class.manager-purchased]="block.managerPurchased"
+            [class.manager-enabled]="block.managerEnabled"
+            [class.locked]="!block.unlocked"
+            [class.affordable]="
+              !block.managerPurchased && block.unlocked && canAfford(block.managerCost)
+            "
+            [class.unaffordable]="
+              !block.managerPurchased && block.unlocked && !canAfford(block.managerCost)
+            "
+            (click)="
+              block.unlocked && (block.managerPurchased ? toggleManager(block) : buyManager(block))
+            "
+          >
+            <img [src]="block.toolIcon" [alt]="block.name + ' manager'" />
+          </div>
+        </div>
+        <button
+          class="buy-button"
+          [class.disabled]="!block.unlocked || getMaxAffordable(block) === 0"
+          [disabled]="!block.unlocked || getMaxAffordable(block) === 0"
+          (click)="buyBlocks(block)"
+        >
+          {{ getBuyButtonText(block) }}
+        </button>
+      </div>
       }
     </div>
 
     <div class="resource-column">
       @for (block of [blocksData[1], blocksData[3], blocksData[5]]; track block) {
-        <div class="resource-panel" [class.locked]="!block.unlocked">
-          <div class="resource-icon-wrapper">
-            <div class="resource-icon" (click)="clickBlock(block)" [class.clickable]="block.unlocked && block.quantity > 0">
-              <img [src]="block.icon" [alt]="block.name" />
-            </div>
+      <div class="resource-panel" [class.locked]="!block.unlocked">
+        <div class="resource-icon-wrapper">
+          <div
+            class="resource-icon"
+            (click)="clickBlock(block)"
+            [class.clickable]="block.unlocked && block.quantity > 0"
+          >
+            <img [src]="block.icon" [alt]="block.name" />
           </div>
-          <div class="resource-info">
-            <div class="resource-name">{{ block.quantity }}x {{ block.name }}</div>
-            <div class="production-rate">
-              <div class="rate-icon"></div>
-              <span>{{ getProductionRate(block) | number : '1.0-0' }}/sec</span>
-            </div>
-          </div>
-          <div class="resource-tool-wrapper">
-            @for (animId of block.animationIds; track animId) {
-              <div class="block-rise" [style.background-image]="'url(' + block.icon + ')'"></div>
-            }
-            <div class="resource-tool" [class.manager-purchased]="block.managerPurchased" [class.manager-enabled]="block.managerEnabled" [class.locked]="!block.unlocked" [class.affordable]="!block.managerPurchased && block.unlocked && canAfford(block.managerCost)" [class.unaffordable]="!block.managerPurchased && block.unlocked && !canAfford(block.managerCost)" (click)="block.unlocked && (block.managerPurchased ? toggleManager(block) : buyManager(block))">
-              <img [src]="block.toolIcon" [alt]="block.name + ' manager'" />
-            </div>
-          </div>
-          <button class="buy-button" [class.disabled]="!block.unlocked || getMaxAffordable(block) === 0" [disabled]="!block.unlocked || getMaxAffordable(block) === 0" (click)="buyBlocks(block)">
-            {{ getBuyButtonText(block) }}
-          </button>
         </div>
+        <div class="resource-info">
+          <div class="resource-name">{{ block.quantity }}x {{ block.name }}</div>
+          <div class="production-rate">
+            <div class="rate-icon"></div>
+            <span>{{ getProductionRate(block) | number : '1.0-0' }}/sec</span>
+          </div>
+        </div>
+        <div class="resource-tool-wrapper">
+          @for (animId of block.animationIds; track animId) {
+          <div class="block-rise" [style.background-image]="'url(' + block.icon + ')'"></div>
+          }
+          <div
+            class="resource-tool"
+            [class.manager-purchased]="block.managerPurchased"
+            [class.manager-enabled]="block.managerEnabled"
+            [class.locked]="!block.unlocked"
+            [class.affordable]="
+              !block.managerPurchased && block.unlocked && canAfford(block.managerCost)
+            "
+            [class.unaffordable]="
+              !block.managerPurchased && block.unlocked && !canAfford(block.managerCost)
+            "
+            (click)="
+              block.unlocked && (block.managerPurchased ? toggleManager(block) : buyManager(block))
+            "
+          >
+            <img [src]="block.toolIcon" [alt]="block.name + ' manager'" />
+          </div>
+        </div>
+        <button
+          class="buy-button"
+          [class.disabled]="!block.unlocked || getMaxAffordable(block) === 0"
+          [disabled]="!block.unlocked || getMaxAffordable(block) === 0"
+          (click)="buyBlocks(block)"
+        >
+          {{ getBuyButtonText(block) }}
+        </button>
+      </div>
       }
     </div>
 
     <div class="upgrade-column">
       @for (upgrade of availableUpgrades; track upgrade) {
-        <div class="upgrade-panel">
-          <div class="upgrade-content">
-            <div class="upgrade-text">
-              <div class="upgrade-name">{{ upgrade.name }}</div>
-              <div class="upgrade-description">{{ upgrade.description }}</div>
-            </div>
-            <button class="upgrade-button" [class.disabled]="!canAfford(upgrade.cost)" [disabled]="!canAfford(upgrade.cost)" (click)="purchaseUpgrade(upgrade)">
-              Upgrade
-            </button>
+      <div class="upgrade-panel">
+        <div class="upgrade-content">
+          <div class="upgrade-text">
+            <div class="upgrade-name">{{ upgrade.name }}</div>
+            <div class="upgrade-description">{{ upgrade.description }}</div>
           </div>
+          <button
+            class="upgrade-button"
+            [class.disabled]="!canAfford(upgrade.cost)"
+            [disabled]="!canAfford(upgrade.cost)"
+            (click)="purchaseUpgrade(upgrade)"
+          >
+            Upgrade
+          </button>
         </div>
+      </div>
       }
     </div>
   </main>
 </div>
+<app-footer
+  mainText="Created by Sean Hammond"
+  [componentPath]="'sean/components/mineclick'"
+  [showShoutOut]="false"
+/>
