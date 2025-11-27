@@ -1,0 +1,106 @@
+@import 'tailwindcss/theme' layer(theme);
+@import 'tailwindcss/utilities' layer(utilities);
+
+.starwars-info {
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  background-color: var(--app-bg-primary);
+}
+
+@media (min-width: 640px) {
+  .starwars-info {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .starwars-info {
+    padding: 3rem 2rem;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.header h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--app-accent-light);
+  text-shadow: 0 0 20px rgba(45, 212, 191, 0.5);
+}
+
+@media (min-width: 640px) {
+  .header h1 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header h1 {
+    font-size: 3rem;
+  }
+}
+
+.header p {
+  font-size: 1.125rem;
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.625;
+  color: var(--app-text-secondary);
+}
+
+@media (min-width: 640px) {
+  .header p {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header p {
+    font-size: 1.5rem;
+  }
+}
+
+.actions {
+  @apply flex justify-center mb-12;
+}
+
+.actions button {
+  @apply px-8 py-4 rounded-lg font-semibold text-lg transition-all;
+  background: linear-gradient(135deg, var(--app-accent), var(--app-accent-dark));
+  color: var(--app-bg-primary);
+  box-shadow: 0 4px 16px rgba(45, 212, 191, 0.3);
+}
+
+.actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(45, 212, 191, 0.4);
+  background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
+}
+
+.actions button:active {
+  transform: translateY(0);
+}
+
+.film-cards {
+  @apply grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 max-w-7xl mx-auto;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .header h1 {
+    @apply text-3xl;
+  }
+
+  .header p {
+    @apply text-base px-4;
+  }
+
+  .actions button {
+    @apply px-6 py-3 text-base;
+  }
+}

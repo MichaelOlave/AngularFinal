@@ -1,6 +1,17 @@
-<p>Total films: {{ films.length }}</p>
-
-@for (film of films; track film.episode_id) {
-<app-film-card [film]="film"></app-film-card>
-<p>{{ film.episode_id }}</p>
-}
+<main class="starwars-info">
+  <section class="header">
+    <h1>Star Wars Films</h1>
+    <p>
+      Explore the epic saga of Star Wars through its iconic films. Dive into the adventures,
+      characters, and stories that have captivated audiences for decades.
+    </p>
+  </section>
+  <section class="actions">
+    <button (click)="fetchFilms()">Load Films</button>
+  </section>
+  <section class="film-cards">
+    @for (film of films; track film.episode_id) {
+    <app-film-card [film]="film"></app-film-card>
+    }
+  </section>
+</main>

@@ -1,10 +1,16 @@
 @import 'tailwindcss';
 
 .film-card {
-  @apply rounded-xl p-6 m-4 transition-all;
+  @apply rounded-xl transition-all;
+  padding: 2rem;
+  margin: 0.5rem;
   border: 1px solid rgba(45, 212, 191, 0.2);
   background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 500px;
 }
 
 .film-card:hover {
@@ -16,20 +22,23 @@
 
 .film-card h2 {
     @apply text-2xl font-bold mb-4;
-    background: linear-gradient(135deg, var(--app-accent-light), var(--app-accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--app-accent-light);
+    text-shadow: 0 0 15px rgba(45, 212, 191, 0.4);
 }
 
 .film-card p {
-    @apply text-base mb-2 leading-relaxed;
+    @apply mb-4;
     color: var(--app-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
 }
 
 .film-card p:last-child {
-    @apply mb-0 mt-4 p-4 rounded-lg;
+    @apply mt-auto p-5 rounded-lg;
+    margin-bottom: 0;
     background-color: rgba(15, 23, 42, 0.5);
     border-left: 3px solid var(--app-accent);
     font-style: italic;
+    line-height: 1.9;
+    font-size: 0.9rem;
 }
