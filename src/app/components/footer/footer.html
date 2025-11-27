@@ -23,8 +23,7 @@
     </div>
     }
     <div>
-      <button (click)="codeViewer.isOpen = true" id="viewSourceBtn">View Page Source Code</button>
-      <app-code-viewer #codeViewer [componentPath]="componentPath" />
+      <button (click)="openCodeViewer()" id="viewSourceBtn">View Page Source Code</button>
     </div>
   </div>
 </footer>
