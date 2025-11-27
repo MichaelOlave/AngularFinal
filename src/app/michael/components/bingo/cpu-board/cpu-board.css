@@ -1,11 +1,13 @@
 @import 'tailwindcss';
 
 :host {
-  @apply block p-2 sm:p-4 rounded-xl overflow-hidden;
+  @apply block p-2 sm:p-3 rounded-xl overflow-hidden;
   background: linear-gradient(135deg, var(--app-bg-secondary) 0%, var(--app-bg-tertiary) 100%);
   border: 1px solid rgba(45, 212, 191, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
+  min-width: 0;
+  max-width: 100%;
 }
 
 :host:hover {
@@ -14,7 +16,9 @@
 }
 
 .cpu-board-container {
-  @apply flex flex-col gap-2 sm:gap-4;
+  @apply flex flex-col gap-2 sm:gap-3;
+  min-width: 0;
+  width: 100%;
 }
 
 .cpu-board-container h2 {
@@ -27,11 +31,13 @@
 }
 
 .board-wrapper {
-  @apply relative p-2 sm:p-3 rounded-lg;
+  @apply relative p-2 sm:p-3 rounded-lg overflow-auto;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(45, 212, 191, 0.1);
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 0;
+  width: 100%;
 }
 
 .board-wrapper.revealed {

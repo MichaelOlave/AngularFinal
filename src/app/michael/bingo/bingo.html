@@ -1,72 +1,75 @@
-<section id="playSpace">
-  <app-game-outcome-popup #outcomePopup />
-  <app-bingo-ball-spinner #bingoSpinner (rolled)="onBallRolled($event)" />
-  <section id="gameMenu">
-    <h2>Game Menu</h2>
-    <app-bingo-slider
-      [class.disabled]="Board.gameRunning"
-      id="number-of-cpus"
-      title="Number of Opponents"
-      [value]="numberOfCPUBoards"
-      (valueChange)="numberOfCPUBoards = $event; setCPUBoardCount($event)"
-    />
-    <app-bingo-slider
-      [class.disabled]="Board.gameRunning"
-      id="interval-between-rolls"
-      title="Interval Between Rolls (seconds)"
-      [value]="intervalBetweenRolls()"
-      (valueChange)="intervalBetweenRolls.set($event)"
-      [min]="1"
-      [max]="60"
-      [step]="1"
-    />
-    <button
-      [class.disabled]="resetBtn?.hasAttribute('disabled')"
-      (click)="resetPlayerBoard()"
-      id="resetPlayerBoard"
-    >
-      Reset Player Board
-    </button>
-    <button
-      [class.disabled]="rebuildBtn?.hasAttribute('disabled')"
-      (click)="rebuildCPUBoards()"
-      id="rebuildCPUBoards"
-    >
-      Rebuild CPU Boards
-    </button>
-    <button
-      [class.disabled]="startBtn?.hasAttribute('disabled')"
-      (click)="onStartGame()"
-      id="startGame"
-    >
-      Start Game
-    </button>
-    <button (click)="endGame()" id="resetGame">Reset Game</button>
-  </section>
-
-  <div id="gameBoardsContainer">
-    <section id="playerBoard">
-      <app-board #boardComp (winDetected)="outcomePopup.show('Bingo!', 'You win!')"></app-board>
-    </section>
-
-    <!-- Mobile CPU Boards Toggle -->
-    <button (click)="toggleMobileCPUBoards()" class="mobile-cpu-toggle lg:hidden w-full py-2 px-4 rounded">
-      @if (showMobileCPUBoards()) {
-        Hide CPU Boards
-      } @else {
-        Show CPU Boards
-      }
-    </button>
-
-    <!-- CPU Boards -->
-    <section id="cpuBoards" [class.hidden]="!showMobileCPUBoards()" class="lg:block">
-      @for (board of cpuBoardList; track $index){
-      <app-cpu-board
-        #cpuBoardRefs
-        [name]="cpuBoardNames[board]"
-        (cpuWin)="outcomePopup.show($event + ' CPU Bingo!', `${$event} has won the game!`)"
+<section id="bingoGame">
+  <section id="playSpace">
+    <app-game-outcome-popup #outcomePopup />
+    <app-bingo-ball-spinner #bingoSpinner (rolled)="onBallRolled($event)" />
+    <section id="gameMenu">
+      <h2>Game Menu</h2>
+      <app-bingo-slider
+        [class.disabled]="Board.gameRunning"
+        id="number-of-cpus"
+        title="Number of Opponents"
+        [step]="1"
+        [value]="numberOfCPUBoards()"
+        (valueChange)="numberOfCPUBoards.set($event); setCPUBoardCount($event)"
       />
-      }
+      <app-bingo-slider
+        [class.disabled]="Board.gameRunning"
+        id="interval-between-rolls"
+        title="Interval Between Rolls (seconds)"
+        [value]="intervalBetweenRolls()"
+        (valueChange)="intervalBetweenRolls.set($event)"
+        [min]="1"
+        [max]="60"
+        [step]="1"
+      />
+      <button
+        [class.disabled]="resetBtn?.hasAttribute('disabled')"
+        (click)="resetPlayerBoard()"
+        id="resetPlayerBoard"
+      >
+        Reset Player Board
+      </button>
+      <button
+        [class.disabled]="rebuildBtn?.hasAttribute('disabled')"
+        (click)="rebuildCPUBoards()"
+        id="rebuildCPUBoards"
+      >
+        Rebuild CPU Boards
+      </button>
+      <button
+        [class.disabled]="startBtn?.hasAttribute('disabled')"
+        (click)="onStartGame()"
+        id="startGame"
+      >
+        Start Game
+      </button>
+      <button (click)="endGame()" id="resetGame">Reset Game</button>
     </section>
-  </div>
+
+    <div id="gameBoardsContainer">
+      <section id="playerBoard">
+        <app-board #boardComp (winDetected)="outcomePopup.show('Bingo!', 'You win!')"></app-board>
+      </section>
+
+      <!-- Mobile CPU Boards Toggle -->
+      <button
+        (click)="toggleMobileCPUBoards()"
+        class="mobile-cpu-toggle lg:hidden w-full py-2 px-4 rounded"
+      >
+        @if (showMobileCPUBoards()) { Hide CPU Boards } @else { Show CPU Boards }
+      </button>
+
+      <!-- CPU Boards -->
+      <section id="cpuBoards" [class.hidden]="!showMobileCPUBoards()" class="lg:block">
+        @for (board of cpuBoardList; track $index){
+        <app-cpu-board
+          #cpuBoardRefs
+          [name]="cpuBoardNames[board]"
+          (cpuWin)="outcomePopup.show($event + ' CPU Bingo!', `${$event} has won the game!`)"
+        />
+        }
+      </section>
+    </div>
+  </section>
 </section>
+<app-footer mainText="Created by Michael Olave" [componentPath]="'michael/bingo'" />

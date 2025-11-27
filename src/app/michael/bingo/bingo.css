@@ -21,8 +21,8 @@
 }
 
 #cpuBoards {
-  @apply grid gap-4 lg:gap-8;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  @apply grid gap-3 lg:gap-4;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 h2 {
@@ -67,4 +67,21 @@ button:disabled {
 .mobile-cpu-toggle:hover {
   background-color: var(--app-accent-hover);
   color: var(--app-text-primary);
+}
+
+footer {
+  @apply flex flex-col lg:flex-row items-center justify-between gap-4 p-4 lg:p-6 mt-8;
+  background-color: var(--app-bg-secondary);
+  border-top: 1px solid rgba(45, 212, 191, 0.2);
+  margin-top: auto;
+}
+
+footer p {
+  @apply text-sm;
+  color: var(--app-text-secondary);
+  margin: 0;
+}
+
+#viewSourceBtn {
+  @apply flex-shrink-0;
 }

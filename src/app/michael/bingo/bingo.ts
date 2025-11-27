@@ -6,6 +6,7 @@ import { BingoSlider } from '../components/bingo/bingo-slider/bingo-slider';
 import { CpuBoard } from '../components/bingo/cpu-board/cpu-board';
 import { BingoBallSpinner } from '../components/bingo/bingo-ball-spinner/bingo-ball-spinner';
 import { GameOutcomePopup } from '../components/game-outcome-popup/game-outcome-popup';
+import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-bingo',
@@ -19,6 +20,7 @@ import { GameOutcomePopup } from '../components/game-outcome-popup/game-outcome-
     CommonModule,
     BingoBallSpinner,
     GameOutcomePopup,
+    Footer,
   ],
 })
 export class Bingo implements OnInit {
@@ -81,17 +83,17 @@ export class Bingo implements OnInit {
     'Zara',
   ];
   intervalBetweenRolls = signal(10);
+  numberOfCPUBoards = signal(5);
   startBtn: HTMLElement | null = null;
   resetBtn: HTMLElement | null = null;
   rebuildBtn: HTMLElement | null = null;
   numberOfCPUBoardsSlider: HTMLElement | null = null;
   intervalBetweenRollsSlider: HTMLElement | null = null;
 
-  numberOfCPUBoards = 2;
   cpuBoardList: number[] = [];
 
   initializeBoardList(): void {
-    this.cpuBoardList = Array.from({ length: this.numberOfCPUBoards }, (_, i) => i);
+    this.cpuBoardList = Array.from({ length: this.numberOfCPUBoards() }, (_, i) => i);
   }
 
   ngOnInit(): void {
@@ -114,7 +116,7 @@ export class Bingo implements OnInit {
   }
 
   setCPUBoardCount(count: number): void {
-    this.numberOfCPUBoards = count;
+    this.numberOfCPUBoards.set(count);
     this.initializeBoardList();
 
     queueMicrotask(() => {
@@ -125,7 +127,7 @@ export class Bingo implements OnInit {
   intervalId: any;
 
   onStartGame(): void {
-    if (this.intervalId) return; // prevents double-starts
+    if (this.intervalId) return;
 
     this.startBtn?.setAttribute('disabled', 'true');
     this.resetBtn?.setAttribute('disabled', 'true');
@@ -138,13 +140,12 @@ export class Bingo implements OnInit {
     this.bingoSpinner.open();
 
     this.intervalId = setInterval(() => {
-      // Stop loop if gameRunning becomes false
       if (!Board.gameRunning) {
         this.endGame();
         return;
       }
 
-      this.bingoSpinner.open(); // roll a new ball
+      this.bingoSpinner.open();
     }, this.intervalBetweenRolls() * 1000);
   }
 
@@ -166,6 +167,6 @@ export class Bingo implements OnInit {
   }
 
   toggleMobileCPUBoards(): void {
-    this.showMobileCPUBoards.update(val => !val);
+    this.showMobileCPUBoards.update((val) => !val);
   }
 }
