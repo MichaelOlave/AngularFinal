@@ -33,7 +33,7 @@ export class Projectgallery {
       author: 'Michael Olave',
     },
     {
-      title: 'Mineclicker',
+      title: 'Mineclick',
       component: Mineclick,
       route: '/sean/dashboard',
       author: 'Sean',
